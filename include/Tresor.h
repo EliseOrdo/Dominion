@@ -2,7 +2,7 @@
 #define TRESOR_H
 #include "Carte.h"
 class Tresor : virtual Carte {
-
+    int valeur;
 };
 
 #endif
