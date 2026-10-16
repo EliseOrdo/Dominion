@@ -7,7 +7,8 @@ protected:
     std::string nom;
     int cout;
     std::string description;
-
+public:
+    friend std::ostream& operator <<(std::ostream& os,Carte& carte);
 };
 
 #endif
