@@ -3,7 +3,8 @@
 #include "Royaume.h"
 
 class Village : virtual Royaume {
-
+public:
+    void effet(Joueur j) override;
 };
 
 #endif
