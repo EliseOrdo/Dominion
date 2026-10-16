@@ -3,6 +3,7 @@
 #include "Royaume.h"
 
 class Laboratoire : protected virtual Royaume {
+public:
     void effet(Joueur j) override;
 };
 
