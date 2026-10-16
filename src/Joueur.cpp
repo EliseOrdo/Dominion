@@ -9,3 +9,20 @@ void Joueur::melanger(){
     deck = defausse;
     defausse = {};
 }
+
+Carte Joueur::reveler(){
+    if (deck.size()==0){
+        melanger();
+    }
+    Carte rev = deck[deck.size()-1];
+    deck.pop_back();
+    return rev;
+}
+
+void Joueur::piocher(){
+    if (deck.size()==0){
+        melanger();
+    }
+    main.push_back(deck[deck.size()-1]);
+    deck.pop_back();
+}

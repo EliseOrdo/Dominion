@@ -10,6 +10,7 @@ public :
     void achat();
     void jouer();
     void piocher();
+    Carte reveler();
     void melanger();
 };
 
