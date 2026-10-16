@@ -3,6 +3,7 @@
 #include "Carte.h"
 
 class Victoire : virtual Carte{
+protected:
     int points;
 };
 #endif
