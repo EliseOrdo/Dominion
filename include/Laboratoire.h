@@ -4,6 +4,8 @@
 
 class Laboratoire : protected virtual Royaume {
 public:
+    Laboratoire();
+
     void effet(Joueur j) override;
 };
 

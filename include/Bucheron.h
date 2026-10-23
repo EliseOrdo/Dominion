@@ -4,6 +4,7 @@
 
 class Bucheron : virtual Royaume {
 public:
+    Bucheron();
     void effet(Joueur j) override;
 };
 

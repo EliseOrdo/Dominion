@@ -2,6 +2,12 @@
 #include <random>
 #include <algorithm>
 
+Joueur::Joueur(){
+    nb_action = 1;
+    nb_piece = 0;
+    nb_achat = 1;
+}
+
 void Joueur::melanger(){
     std::random_device rd;
     std::mt19937 g(rd());
