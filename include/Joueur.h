@@ -13,6 +13,7 @@ public :
     void piocher(int nb);
     Carte reveler();
     void melanger();
+    void finDeTour();
     int getNbAction();
     int getNbAchat();
     int getNbPiece();

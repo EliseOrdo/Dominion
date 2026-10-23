@@ -30,6 +30,12 @@ void Joueur::piocher(int nb){
     }
 }
 
+void Joueur::finDeTour(){
+    nb_action = 1;
+    nb_piece = 0;
+    nb_achat = 1;
+}
+
 int Joueur::getNbAction(){
     return nb_action;
 }
