@@ -3,7 +3,8 @@
 #include "Royaume.h"
 
 class Bucheron : virtual Royaume {
-
+public:
+    void effet(Joueur j) override;
 };
 
 #endif

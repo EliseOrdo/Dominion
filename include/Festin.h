@@ -3,7 +3,8 @@
 #include "Royaume.h"
 
 class Festin : virtual Royaume {
-
+public:
+    void effet(Joueur j) override;
 };
 
 #endif

@@ -4,7 +4,8 @@
 #include "Reaction.h"
 
 class Douve : virtual Attaque, virtual Reaction {
-
+public:
+    void effet(Joueur j) override;
 };
 
 #endif

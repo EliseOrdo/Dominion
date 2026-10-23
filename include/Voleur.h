@@ -3,7 +3,8 @@
 #include "Attaque.h"
 
 class Voleur : virtual Attaque {
-
+public:
+    void effet(Joueur j) override;
 };
 
 #endif
