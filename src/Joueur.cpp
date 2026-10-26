@@ -1,6 +1,8 @@
 #include "Joueur.h"
 #include <random>
 #include <algorithm>
+#include <stdexcept>
+#include <iostream>
 
 void Joueur::melanger(){
     std::random_device rd;
@@ -28,6 +30,27 @@ void Joueur::piocher(int nb){
         main.push_back(deck[deck.size()-1]);
         deck.pop_back();
     }
+}
+
+int Joueur::getIndCarteMain(std::string nom){
+    /*retourne l'indice de la carte dans la main ou une erreur si elle n'y est pas*/
+    for(int i=0; i<main.size();i++){
+        if(main.at(i).getNom()==nom){
+            return i;
+        }
+    }
+    throw std::invalid_argument("la carte n'est pas dans la main");
+}
+
+void Joueur::ecarter(std::string nom){
+    /*détruit la carte de la main*/
+    try{
+        main.erase(main.begin()+getIndCarteMain(nom)); //erase prend un iterator, d'où le begin()
+    }
+    catch (std::invalid_argument& e){
+        std::cerr<< e.what()<<"\n";
+    }
+    
 }
 
 void Joueur::finDeTour(){

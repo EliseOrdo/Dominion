@@ -12,6 +12,8 @@ public :
     void jouer();
     void piocher(int nb);
     Carte reveler();
+    int getIndCarteMain(std::string nom);
+    void ecarter(std::string nom);
     void melanger();
     void finDeTour();
     int getNbAction();
