@@ -39,7 +39,7 @@ void Joueur::piocher(int nb){
 }
 
 int Joueur::getIndCarteMain(std::string nom){
-    /*retourne l'indice de la carte dans la main ou une erreur si elle n'y est pas*/
+    /*retourne l'indice de la premiere instance de carte dans la main ou une erreur si elle n'y est pas*/
     for(int i=0; i<main.size();i++){
         if(main.at(i).getNom()==nom){
             return i;
