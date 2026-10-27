@@ -5,7 +5,7 @@
 
 class Douve : virtual Attaque, virtual Reaction {
 public:
-    void effet(Joueur j) override;
+    void effet(Joueur j) override{j.piocher(2);};
 };
 
 #endif

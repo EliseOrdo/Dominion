@@ -13,7 +13,7 @@ Mine::Mine(){
 }
 
 /*PAS FINI*/
-/* void Mine::effet(Joueur j){
+/*void Mine::effet(Joueur j){
     std::vector<Carte*> cartes_tres = Joueur::getCartesTresor(j.getMain());
     std::cout<<"Ecartez une carte Tresor : ";
     Carte* carte = Jeu::choisirCarte(cartes_tres);

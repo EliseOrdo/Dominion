@@ -44,7 +44,7 @@ Carte* Jeu::getCarte(std::string nom){
 }
 
 //PAS FINI
-bool Jeu::enleverCarte(std::string nom){
+/*bool Jeu::enleverCarte(std::string nom){
     //renvoie true si on a pu enlever une carte de la pioche
     if(pioches.at(carte)>0){ //TODO comparer les noms (regarder les autres endroits où on cherche avec les noms)
         pioches.at(carte) -= 1;
@@ -55,4 +55,4 @@ bool Jeu::enleverCarte(std::string nom){
     }else{
         return false;
     } 
-}
+}*/
