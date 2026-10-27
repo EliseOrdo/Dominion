@@ -2,7 +2,7 @@
 #define FESTIN_H
 #include "Royaume.h"
 
-class Festin : virtual Royaume {
+class Festin : public Royaume {
 public:
     void effet(Joueur j) override;
 };

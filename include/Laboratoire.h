@@ -2,7 +2,7 @@
 #define LABO_H
 #include "Royaume.h"
 
-class Laboratoire : protected virtual Royaume {
+class Laboratoire : protected Royaume {
 public:
     Laboratoire();
 

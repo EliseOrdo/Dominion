@@ -2,7 +2,7 @@
 #define VOLEUR_H
 #include "Attaque.h"
 
-class Voleur : virtual Attaque {
+class Voleur : public Attaque {
 public:
     void effet(Joueur j) override;
 };

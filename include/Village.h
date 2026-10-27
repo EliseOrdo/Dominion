@@ -2,7 +2,7 @@
 #define VILLAGE_H
 #include "Royaume.h"
 
-class Village : virtual Royaume {
+class Village : public Royaume {
 public:
     Village();
 

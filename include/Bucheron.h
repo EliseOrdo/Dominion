@@ -2,7 +2,7 @@
 #define BUCHERON_H
 #include "Royaume.h"
 
-class Bucheron : virtual Royaume {
+class Bucheron : public  Royaume {
 public:
     Bucheron();
     void effet(Joueur j) override;

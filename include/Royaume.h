@@ -2,9 +2,9 @@
 #define ROYAUME_H
 #include "Carte.h"
 #include "Joueur.h"
-class Royaume : public virtual Carte{
+class Royaume : public Carte{
 public :
-    virtual void effet(Joueur j);
+    virtual void effet(Joueur j) = 0;
 };
 
 #endif

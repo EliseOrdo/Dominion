@@ -2,7 +2,8 @@
 #define CHAP_H
 #include "Royaume.h"
 
-class Chapelle : virtual Royaume {
+
+class Chapelle : public Royaume {
 public:
     void effet(Joueur j) override;
 };

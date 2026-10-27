@@ -1,7 +1,7 @@
 #ifndef OR_H
 #define OR_H
 #include "Tresor.h"
-class Or: virtual Tresor {
+class Or: public Tresor {
 public:
     Or();
 };

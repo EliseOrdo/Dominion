@@ -2,7 +2,7 @@
 #define VICTOIRE_H
 #include "Carte.h"
 
-class Victoire : virtual Carte{
+class Victoire : public Carte{
 protected:
     int points;
 };

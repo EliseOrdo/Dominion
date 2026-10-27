@@ -2,7 +2,7 @@
 #define SORCIERE_H
 #include "Attaque.h"
 
-class Sorciere : virtual Attaque {
+class Sorciere : public Attaque {
 
 };
 
