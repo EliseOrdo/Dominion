@@ -1,8 +1,23 @@
 #include "Joueur.h"
+#include "Tresor.h"
+#include "Carte.h"
 #include <random>
 #include <algorithm>
 #include <stdexcept>
 #include <iostream>
+
+
+std::vector<Carte*> Joueur::getCartesTresor(std::vector<Carte*> listeCartes){
+    std::vector<Carte*> res;
+    for(Carte* cartePtr : listeCartes){
+        Tresor* tresorPtr = dynamic_cast<Tresor*>(cartePtr);
+        if(tresorPtr){
+            res.push_back(cartePtr);
+        }
+    }
+    return res;
+}
+
 
 Joueur::Joueur(){
     nb_action = 1;
@@ -19,11 +34,11 @@ void Joueur::melanger(){
     defausse = {};
 }
 
-Carte Joueur::reveler(){
+Carte* Joueur::reveler(){
     if (deck.size()==0){
         melanger();
     }
-    Carte rev = deck[deck.size()-1];
+    Carte* rev = deck[deck.size()-1];
     deck.pop_back();
     return rev;
 }
@@ -40,8 +55,8 @@ void Joueur::piocher(int nb){
 
 int Joueur::getIndCarteMain(std::string nom){
     /*retourne l'indice de la premiere instance de carte dans la main ou une erreur si elle n'y est pas*/
-    for(int i=0; i<main.size();i++){
-        if(main.at(i).getNom()==nom){
+    for(int i=0; i<int(main.size());i++){
+        if(main.at(i)->getNom()==nom){
             return i;
         }
     }
@@ -75,6 +90,10 @@ int Joueur::getNbAchat(){
 
 int Joueur::getNbPiece(){
     return nb_piece;
+}
+
+std::vector<Carte*> Joueur::getMain(){
+    return main;
 }
 
 void Joueur::addNbAction(int nb){

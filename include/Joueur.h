@@ -5,13 +5,14 @@
 
 class Joueur {
     int id, nb_action, nb_achat, nb_piece;
-    std::vector<Carte> main, deck, defausse, en_jeu;
+    std::vector<Carte*> main, deck, defausse, en_jeu;
 public :
+    static std::vector<Carte*> getCartesTresor(std::vector<Carte*> listeCartes);
     Joueur();
     void achat();
     void jouer();
     void piocher(int nb);
-    Carte reveler();
+    Carte* reveler();
     int getIndCarteMain(std::string nom);
     void ecarter(std::string nom);
     void melanger();
@@ -19,6 +20,7 @@ public :
     int getNbAction();
     int getNbAchat();
     int getNbPiece();
+    std::vector<Carte*> getMain();
     void addNbAction(int nb);
     void addNbAchat(int nb);
     void addNbPiece(int nb);
