@@ -33,7 +33,7 @@ Joueur Jeu::victoire(){
     return gagnant;
 }
 
-/*// PAS FINI
+// PAS FINI
 Carte* Jeu::getCarte(std::string nom){
     //n'enleve pas de carte de la pioche
     for(auto pair:pioches){
@@ -55,4 +55,4 @@ bool Jeu::enleverCarte(std::string nom){
     }else{
         return false;
     } 
-}*/
+}

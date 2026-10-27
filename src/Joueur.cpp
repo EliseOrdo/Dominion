@@ -144,14 +144,11 @@ int Joueur::getScore(){
     return score;
 }
 
-/*
-TODO ? but : enlever une carte d'une liste de carte
-
 Carte* Joueur::enleverCarte(std::string nom, std::vector<Carte*> liste){
-    for(Carte* c : liste){
-        if(c->getNom()==nom){
-            liste.
-            return c;
+    for(int i=0; i<liste.size(); i++){
+        if(liste.at(i)->getNom()==nom){
+            liste.erase(liste.begin()+i);
+            return liste.at(i);
         }
     }
-}*/
+}
