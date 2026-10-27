@@ -24,6 +24,8 @@ public :
     void addNbAction(int nb);
     void addNbAchat(int nb);
     void addNbPiece(int nb);
+    void recevoirCarte(Carte* carte);
+    //TODO? Carte* enleverCarte(std::string nom, std::vector<Carte*> liste);
 };
 
 #endif

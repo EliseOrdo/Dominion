@@ -66,7 +66,9 @@ int Joueur::getIndCarteMain(std::string nom){
 void Joueur::ecarter(std::string nom){
     /*détruit la carte de la main*/
     try{
+        Carte* c = main.at(getIndCarteMain(nom));
         main.erase(main.begin()+getIndCarteMain(nom)); //erase prend un iterator, d'où le begin()
+        delete c;
     }
     catch (std::invalid_argument& e){
         std::cerr<< e.what()<<"\n";
@@ -107,3 +109,20 @@ void Joueur::addNbAchat(int nb){
 void Joueur::addNbPiece(int nb){
     nb_piece += nb;
 }
+
+void Joueur::recevoirCarte(Carte* carte){
+    /*met la carte dans la main du joueur, pensée pour être appelée avec Jeu::enleverCarte()*/
+    main.push_back(carte);
+}
+
+/*
+TODO ? but : enlever une carte d'une liste de carte
+
+Carte* Joueur::enleverCarte(std::string nom, std::vector<Carte*> liste){
+    for(Carte* c : liste){
+        if(c->getNom()==nom){
+            liste.
+            return c;
+        }
+    }
+}*/

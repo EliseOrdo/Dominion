@@ -20,10 +20,26 @@ Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     return listeCartes.at(rep);
 }
 
-Carte* Jeu::enleverCarte(std::string nom, std::vector<Carte*> liste){
-    for(Carte* c : liste){
-        if(c->getNom()==nom){
-            return c;
+/*PAS FINI*/
+Carte* Jeu::getCarte(std::string nom){
+    /*n'enleve pas de carte de la pioche*/
+    for(auto pair:pioches){
+        if(pair.first->getNom()==nom){
+            return pair.first;// TODO faudrait créer une nouvelle carte de même classe
         }
+    }
+}
+
+/*PAS FINI*/
+bool Jeu::enleverCarte(std::string nom){
+    /*renvoie true si on a pu enlever une carte de la pioche*/
+    if(pioches.at(carte)>0){ //TODO comparer les noms (regarder les autres endroits où on cherche avec les noms)
+        pioches.at(carte) -= 1;
+        if(pioches.at(carte)==0){
+            nb_pioches_vides += 1;
+        }
+        return true;
+    }else{
+        return false;
     }
 }
