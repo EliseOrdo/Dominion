@@ -8,6 +8,8 @@ class Jeu {
     std::map<Carte,int> pioches;
     std::vector<Joueur> joueurs;
     int nb_pioches_vides;
+public:
+    static Carte* choisirCarte(std::vector<Carte*> listeCartes);
 };
 
 #endif
