@@ -3,7 +3,11 @@
 #include "Carte.h"
 
 class Victoire : public Carte{
-protected:
-    int points;
+    protected:
+        int points;
+    
+    public:
+        int get_points(){return points;};
+
 };
 #endif

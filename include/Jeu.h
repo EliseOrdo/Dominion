@@ -13,6 +13,7 @@ public:
     static Carte* choisirCarte(std::vector<Carte*> listeCartes);
     static bool enleverCarte(std::string nom);
     Carte* getCarte(std::string nom);
+    Joueur victoire();
 };
 
 #endif

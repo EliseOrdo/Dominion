@@ -1,5 +1,7 @@
 #include "Joueur.h"
 #include "Tresor.h"
+#include "Victoire.h"
+#include "Malediction.h"
 #include "Carte.h"
 #include <random>
 #include <algorithm>
@@ -17,7 +19,6 @@ std::vector<Carte*> Joueur::getCartesTresor(std::vector<Carte*> listeCartes){
     }
     return res;
 }
-
 
 Joueur::Joueur(){
     nb_action = 1;
@@ -80,7 +81,15 @@ void Joueur::finDeTour(){
     nb_action = 1;
     nb_piece = 0;
     nb_achat = 1;
+
+    for(Carte*carte:main){
+        defausse.push_back(carte);
+    }
+    main = {};
+    piocher(5);
 }
+
+
 
 int Joueur::getNbAction(){
     return nb_action;
@@ -113,6 +122,26 @@ void Joueur::addNbPiece(int nb){
 void Joueur::recevoirCarte(Carte* carte){
     /*met la carte dans la main du joueur, pensée pour être appelée avec Jeu::enleverCarte()*/
     main.push_back(carte);
+}
+
+int Joueur::getScore(){
+    int score = 0;
+    deck.insert(deck.end(), main.begin(), main.end());
+    deck.insert(deck.end(), defausse.begin(), defausse.end());
+    main = {};
+    defausse = {};
+    for(Carte* carte : deck){
+        Victoire* vict = dynamic_cast<Victoire*>(carte);
+        if(vict){
+            score += vict->get_points();
+        }else{
+            Malediction* mal = dynamic_cast<Malediction*>(carte);
+            if(mal){
+                score -= 1;
+            }
+        }
+    }
+    return score;
 }
 
 /*

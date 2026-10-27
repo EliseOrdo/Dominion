@@ -8,6 +8,7 @@ class Joueur {
     std::vector<Carte*> main, deck, defausse, en_jeu;
 public :
     static std::vector<Carte*> getCartesTresor(std::vector<Carte*> listeCartes);
+
     Joueur();
     void achat();
     void jouer();
@@ -25,6 +26,7 @@ public :
     void addNbAchat(int nb);
     void addNbPiece(int nb);
     void recevoirCarte(Carte* carte);
+    int getScore();
     //TODO? Carte* enleverCarte(std::string nom, std::vector<Carte*> liste);
 };
 

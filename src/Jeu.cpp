@@ -20,9 +20,22 @@ Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     return listeCartes.at(rep);
 }
 
-/*PAS FINI*/
+Joueur Jeu::victoire(){
+    int score_max = -1000; //Pas 0 car les malefices existent
+    Joueur gagnant;
+    for (Joueur j:joueurs){
+        int score = j.getScore();
+        if(score > score_max){
+            score_max = score;
+            gagnant = j;
+        }
+    }
+    return gagnant;
+}
+
+/*// PAS FINI
 Carte* Jeu::getCarte(std::string nom){
-    /*n'enleve pas de carte de la pioche*/
+    //n'enleve pas de carte de la pioche
     for(auto pair:pioches){
         if(pair.first->getNom()==nom){
             return pair.first;// TODO faudrait créer une nouvelle carte de même classe
@@ -30,9 +43,9 @@ Carte* Jeu::getCarte(std::string nom){
     }
 }
 
-/*PAS FINI*/
+//PAS FINI
 bool Jeu::enleverCarte(std::string nom){
-    /*renvoie true si on a pu enlever une carte de la pioche*/
+    //renvoie true si on a pu enlever une carte de la pioche
     if(pioches.at(carte)>0){ //TODO comparer les noms (regarder les autres endroits où on cherche avec les noms)
         pioches.at(carte) -= 1;
         if(pioches.at(carte)==0){
@@ -41,5 +54,5 @@ bool Jeu::enleverCarte(std::string nom){
         return true;
     }else{
         return false;
-    }
-}
+    } 
+}*/
