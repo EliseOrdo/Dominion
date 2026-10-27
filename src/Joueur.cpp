@@ -1,5 +1,6 @@
 #include "Joueur.h"
 #include "Tresor.h"
+#include "Jardin.h"
 #include "Victoire.h"
 #include "Malediction.h"
 #include "Carte.h"
@@ -131,13 +132,18 @@ int Joueur::getScore(){
     main = {};
     defausse = {};
     for(Carte* carte : deck){
-        Victoire* vict = dynamic_cast<Victoire*>(carte);
-        if(vict){
-            score += vict->get_points();
+        Jardin* jard = dynamic_cast<Jardin*>(carte);
+        if(jard){
+            score += deck.size()/10;
         }else{
-            Malediction* mal = dynamic_cast<Malediction*>(carte);
-            if(mal){
-                score -= 1;
+            Victoire* vict = dynamic_cast<Victoire*>(carte);
+            if(vict){
+                score += vict->get_points();
+            }else{
+                Malediction* mal = dynamic_cast<Malediction*>(carte);
+                if(mal){
+                    score -= 1;
+                }
             }
         }
     }
