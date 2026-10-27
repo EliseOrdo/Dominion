@@ -1,6 +1,7 @@
 #include "Jeu.h"
 #include <iostream>
 #include <limits>
+#include <string>
 
 Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     for(int i=0; i<int(listeCartes.size());i++){
@@ -17,4 +18,12 @@ Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     }
     
     return listeCartes.at(rep);
+}
+
+Carte* Jeu::enleverCarte(std::string nom, std::vector<Carte*> liste){
+    for(Carte* c : liste){
+        if(c->getNom()==nom){
+            return c;
+        }
+    }
 }
