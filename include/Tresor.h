@@ -4,6 +4,8 @@
 class Tresor : public Carte {
 protected:
     int valeur;
+public:
+    int getValue(){return valeur;};
 };
 
 #endif
