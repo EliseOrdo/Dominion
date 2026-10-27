@@ -6,12 +6,13 @@
 #include <vector>
 #include <string>
 class Jeu {
-    std::map<Carte,int> pioches;
-    std::vector<Joueur> joueurs;
-    int nb_pioches_vides;
+    static std::map<Carte*,int> pioches;
+    static std::vector<Joueur> joueurs;
+    static int nb_pioches_vides;
 public:
     static Carte* choisirCarte(std::vector<Carte*> listeCartes);
-    static Carte* enleverCarte(std::string nom, std::vector<Carte*> liste);
+    static bool enleverCarte(std::string nom);
+    Carte* getCarte(std::string nom);
 };
 
 #endif
