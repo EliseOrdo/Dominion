@@ -6,6 +6,7 @@ class Bucheron : public  Royaume {
 public:
     Bucheron();
     void effet(Joueur j) override;
+    Carte* dupliquer() const override{return new Bucheron();}
 };
 
 #endif

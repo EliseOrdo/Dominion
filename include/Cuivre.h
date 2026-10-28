@@ -4,6 +4,7 @@
 class Cuivre: public Tresor {
 public:
     Cuivre();
+    Carte* dupliquer() const override{return new Cuivre();}
 };
 
 #endif

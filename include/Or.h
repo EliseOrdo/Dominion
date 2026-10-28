@@ -4,6 +4,7 @@
 class Or: public Tresor {
 public:
     Or();
+    Carte* dupliquer() const override{return new Or();}
 };
 
 #endif

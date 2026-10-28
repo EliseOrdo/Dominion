@@ -4,7 +4,9 @@
 
 class Voleur : public Attaque {
 public:
+    Voleur();
     void effet(Joueur j) override;
+    Carte* dupliquer() const override{return new Voleur();}
 };
 
 #endif
