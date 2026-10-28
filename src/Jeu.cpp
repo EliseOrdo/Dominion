@@ -8,15 +8,13 @@ std::vector<Joueur> Jeu::joueurs;
 int Jeu::nb_pioches_vides = 0;
 
 Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
-    std::cout<<"-1 : Ne rien prendre"<<std::endl;
     for(int i=0; i<int(listeCartes.size());i++){
         std::cout<<i<<": \n"<<listeCartes.at(i)<<std::endl;
     }
     //bool retry = false;
     int rep;
     std::cout<<"quel est votre choix ?\n";
-    while(!(std::cin>>rep) or rep<-1 or int(listeCartes.size())<rep){
-        if(rep == -1){return nullptr;}
+    while(!(std::cin>>rep) or rep<0 or int(listeCartes.size())<rep){
         std::cin.clear();//efface les bits d'erreur du buffer;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');// supprime la ligne erronée pour eviter boucle infinie
         std::cout<<"erreur, veuillez réessayer.\n";

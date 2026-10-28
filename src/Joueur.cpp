@@ -42,11 +42,18 @@ void Joueur::achat(){
     }
 
     //Affiche les possibilitées et achète
-    Carte* choix = Jeu::choisirCarte(Jeu::getListeCartesPiochesCoutMax(nb_piece));
-    if(choix){
-        Joueur::prendreCarte(Jeu::prendreCartePioches(choix));
-        nb_achat -=1;
-        nb_piece -= choix->getCout();
+    std::vector<Carte*> liste_carte = Jeu::getListeCartesPiochesCoutMax(nb_piece);
+    for (Carte* c: liste_carte){
+        std::cout<<c<<std::endl;
+    }
+    std::cout<<"Voulez-vous acheter ? \n";
+    if(Jeu::OuiNon()){
+        Carte* choix = Jeu::choisirCarte(Jeu::getListeCartesPiochesCoutMax(nb_piece));
+        if(choix){
+            Joueur::prendreCarte(Jeu::prendreCartePioches(choix));
+            nb_achat -=1;
+            nb_piece -= choix->getCout();
+        }
     }
 }
 
