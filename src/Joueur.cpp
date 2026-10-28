@@ -1,4 +1,5 @@
 #include "Joueur.h"
+#include "Jeu.h"
 #include "Tresor.h"
 #include "Jardin.h"
 #include "Victoire.h"
@@ -28,6 +29,25 @@ Joueur::Joueur(){
     nb_action = 1;
     nb_piece = 0;
     nb_achat = 1;
+}
+
+void Joueur::achat(){
+    /*Ne vérifie pas que le joueur peurt acheter*/
+    //Calcule l'argent
+    for(Carte* c:main){
+        Tresor* tres = dynamic_cast<Tresor*>(c);
+        if(tres){
+            nb_piece += tres->getCout();
+        }
+    }
+
+    //Affiche les possibilitées et achète
+    Carte* choix = Jeu::choisirCarte(Jeu::getListeCartesPiochesCoutMax(nb_piece));
+    if(choix){
+        Joueur::prendreCarte(Jeu::prendreCartePioches(choix));
+        nb_achat -=1;
+        nb_piece -= choix->getCout();
+    }
 }
 
 void Joueur::melanger(){

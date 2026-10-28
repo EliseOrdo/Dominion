@@ -13,21 +13,27 @@ public :
 
     Joueur();
     void achat();
-    void jouer();
+    void jouer(); //Pas encore fait
+
     void piocher(int nb);
     Carte* reveler();
-    int getIndCarteMain(std::string nom);
     void ecarter(std::string nom);
+
+    int getIndCarteMain(std::string nom);
+    
     void melanger();
     void finDeTour();
     int getId();
+
     int getNbAction();
     int getNbAchat();
     int getNbPiece();
     std::vector<Carte*> getMain();
+
     void addNbAction(int nb);
     void addNbAchat(int nb);
     void addNbPiece(int nb);
+    
     void recevoirCarte(Carte* carte);
     void prendreCarte(Carte* carte);
     int getScore();
