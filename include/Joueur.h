@@ -29,6 +29,7 @@ public :
     void addNbAchat(int nb);
     void addNbPiece(int nb);
     void recevoirCarte(Carte* carte);
+    void prendreCarte(Carte* carte);
     int getScore();
     
 };
