@@ -12,3 +12,7 @@ std::ostream& operator <<(std::ostream& os,Carte* carte){
 std::string Carte::getNom(){
     return nom;
 }
+
+int Carte::getCout(){
+    return cout;
+}
