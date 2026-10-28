@@ -9,6 +9,7 @@
 #include <stdexcept>
 #include <iostream>
 
+int Joueur::dernier_id = -1;
 
 std::vector<Carte*> Joueur::getCartesTresor(std::vector<Carte*> listeCartes){
     std::vector<Carte*> res;
@@ -22,6 +23,8 @@ std::vector<Carte*> Joueur::getCartesTresor(std::vector<Carte*> listeCartes){
 }
 
 Joueur::Joueur(){
+    dernier_id += 1;
+    id = dernier_id;
     nb_action = 1;
     nb_piece = 0;
     nb_achat = 1;
@@ -53,6 +56,10 @@ void Joueur::piocher(int nb){
         main.push_back(deck[deck.size()-1]);
         deck.pop_back();
     }
+}
+
+int Joueur::getId(){
+    return id;
 }
 
 int Joueur::getIndCarteMain(std::string nom){

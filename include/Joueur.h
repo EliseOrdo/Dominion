@@ -7,6 +7,8 @@ class Joueur {
     int id, nb_action, nb_achat, nb_piece;
     std::vector<Carte*> main, deck, defausse, en_jeu;
 public :
+    static int dernier_id;
+
     static std::vector<Carte*> getCartesTresor(std::vector<Carte*> listeCartes);
 
     Joueur();
@@ -18,6 +20,7 @@ public :
     void ecarter(std::string nom);
     void melanger();
     void finDeTour();
+    int getId();
     int getNbAction();
     int getNbAchat();
     int getNbPiece();

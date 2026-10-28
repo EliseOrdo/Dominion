@@ -85,6 +85,25 @@ Carte* Jeu::enleverCarte(std::string nom, std::vector<Carte*> liste){
     }
 }
 
+std::vector<Joueur> Jeu::getJoueursAffectes(Joueur j){
+    std::vector<Joueur> res = {};
+    for (Joueur j2:Jeu::joueurs){
+        if(j.getId() != j2.getId()){
+            bool affect = true;
+            for(Carte* c:j2.getMain()){
+                if(c->getNom() == "Douve"){
+                    affect = false;
+                    break;
+                }
+            }
+            if(affect){
+                res.push_back(j2);
+            }
+        }
+    }
+    return res;
+}
+
 std::vector<Carte*> Jeu::getListeCartesPiochesCoutMax(int cout_max){
     std::vector<Carte*> res;
     for(auto pair:pioches){

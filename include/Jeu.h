@@ -13,8 +13,12 @@ public:
     static Carte* choisirCarte(std::vector<Carte*> listeCartes);
     static bool enleverCarte(std::string nom);
     static Carte* enleverCarte(std::string nom, std::vector<Carte*> liste);
+
     static Carte* prendreCartePioches(std::string nom);
     static Carte* prendreCartePioches(Carte* carte);
+
+    static std::vector<Joueur> getJoueursAffectes(Joueur j);
+
     static std::vector<Carte*> getListeCartesPiochesCoutMax(int cout_max);
     static Joueur victoire();
     static bool OuiNon();
