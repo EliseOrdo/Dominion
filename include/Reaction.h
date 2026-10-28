@@ -2,7 +2,7 @@
 #define REACTION_H
 #include "Royaume.h"
 
-class Reaction : public Royaume {
+class Reaction : virtual public Royaume {
 
 };
 

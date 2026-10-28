@@ -6,7 +6,7 @@
 class Douve : virtual Attaque, virtual Reaction {
 public:
     Douve();
-    void effet(Joueur j) override{j.piocher(2);};
+    void effet(Joueur j) override;
     Carte* dupliquer() const override{return new Douve();}
 };
 

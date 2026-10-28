@@ -2,7 +2,7 @@
 #define ATTAQUE_H
 #include "Royaume.h"
 
-class Attaque : protected Royaume {
+class Attaque : virtual public Royaume {
 
 public :
 };
