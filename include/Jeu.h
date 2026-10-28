@@ -15,6 +15,7 @@ public:
     static Carte* enleverCarte(std::string nom, std::vector<Carte*> liste);
     static Carte* prendreCartePioches(std::string nom);
     static Carte* prendreCartePioches(Carte* carte);
+    static std::vector<Carte*> getListeCartesPiochesCoutMax(int cout_max);
     static Joueur victoire();
     static bool OuiNon();
     

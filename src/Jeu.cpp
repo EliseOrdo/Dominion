@@ -84,3 +84,12 @@ Carte* Jeu::enleverCarte(std::string nom, std::vector<Carte*> liste){
         }
     }
 }
+
+std::vector<Carte*> Jeu::getListeCartesPiochesCoutMax(int cout_max){
+    std::vector<Carte*> res;
+    for(auto pair:pioches){
+        if(pair.first->getCout()<cout_max){
+            res.push_back(pair.first);
+        }
+    }
+}
