@@ -16,6 +16,7 @@ public:
     static Carte* prendreCartePioches(std::string nom);
     static Carte* prendreCartePioches(Carte* carte);
     static Joueur victoire();
+    static bool OuiNon();
     
 };
 

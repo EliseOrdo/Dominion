@@ -20,6 +20,20 @@ Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     return listeCartes.at(rep);
 }
 
+bool Jeu::OuiNon(){
+    bool retry;
+    do{
+        retry = false;
+        std::string rep;
+        std::cout<<"o/n : ";
+        std::cin>>rep;
+        if(rep=="o"){return true;}
+        if(rep=="n"){return false;}
+        else{retry = true;}
+    }while(retry);
+
+}
+
 Joueur Jeu::victoire(){
     int score_max = -1000; //Pas 0 car les malefices existent
     Joueur gagnant;
