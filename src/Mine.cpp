@@ -12,14 +12,27 @@ Mine::Mine(){
     description = "Ecartez une carte trésor de votre main pour recevoir une carte trésor coutant jusqu'a 3 de plus (ajoutée dans la main);";
 }
 
-/*PAS FINI*/
-/*void Mine::effet(Joueur j){
+void Mine::effet(Joueur j){
     std::vector<Carte*> cartes_tres = Joueur::getCartesTresor(j.getMain());
     std::cout<<"Ecartez une carte Tresor : ";
     Carte* carte = Jeu::choisirCarte(cartes_tres);
     Tresor* tresor = dynamic_cast<Tresor*>(carte);
-    switch(tresor->getValeur()){
+    Carte* c;
+    switch(tresor->getCout()){
         case 0:
-            Jeu::enleverCarte(new Argent())?j.recevoirCarte(new Argent())://jsp; //à voir si ça reste bien en mémoire
+            c = Jeu::prendreCartePioches("Argent");
+            break;
+        case 3:
+            c = Jeu::prendreCartePioches("Or");
+            break;
+        default:
+            c = nullptr;
+            break;
     }
-}*/
+    if(c != nullptr){
+        j.ecarter(carte->getNom());
+        j.recevoirCarte(c);
+    }else{
+        std::cout<<"Operation impossible\n";
+    }
+}
