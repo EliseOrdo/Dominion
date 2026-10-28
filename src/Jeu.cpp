@@ -3,9 +3,13 @@
 #include <limits>
 #include <string>
 
+std::map<Carte*, int> Jeu::pioches;
+std::vector<Joueur> Jeu::joueurs;
+int Jeu::nb_pioches_vides = 0;
+
 Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     for(int i=0; i<int(listeCartes.size());i++){
-        std::cout<<i<<": "<<listeCartes.at(i)<<std::endl;
+        std::cout<<i<<": \n"<<listeCartes.at(i)<<std::endl;
     }
     //bool retry = false;
     int rep;
@@ -31,7 +35,7 @@ bool Jeu::OuiNon(){
         if(rep=="n"){return false;}
         else{retry = true;}
     }while(retry);
-
+    return false;
 }
 
 Joueur Jeu::victoire(){
@@ -77,12 +81,13 @@ Carte* Jeu::prendreCartePioches(Carte* carte){
 }
 
 Carte* Jeu::enleverCarte(std::string nom, std::vector<Carte*> liste){
-    for(int i=0; i<liste.size(); i++){
+    for(size_t i=0; i<liste.size(); i++){
         if(liste.at(i)->getNom()==nom){
             liste.erase(liste.begin()+i);
             return liste.at(i);
         }
     }
+    return nullptr;
 }
 
 std::vector<Joueur> Jeu::getJoueursAffectes(Joueur j){
@@ -111,4 +116,5 @@ std::vector<Carte*> Jeu::getListeCartesPiochesCoutMax(int cout_max){
             res.push_back(pair.first);
         }
     }
+    return res;
 }

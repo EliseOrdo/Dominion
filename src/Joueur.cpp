@@ -129,7 +129,7 @@ void Joueur::addNbPiece(int nb){
 
 void Joueur::recevoirCarte(Carte* carte){
     /*met la carte dans la main du joueur*/
-    main.push_back(carte);
+    defausse.push_back(carte);
 }
 
 int Joueur::getScore(){
