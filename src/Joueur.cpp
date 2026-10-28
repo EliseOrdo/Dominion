@@ -31,6 +31,24 @@ Joueur::Joueur(){
     nb_achat = 1;
 }
 
+void Joueur::tour(){
+    bool continuer;
+    //phase action
+    while(nb_action > 0){
+        Joueur::jouerCarte();
+    }
+
+    //phase achat
+    while(nb_achat > 0){
+        std::cout<<"Faire un achat ?\n";
+        if(!Jeu::OuiNon()){break;}
+        achat();
+    }
+
+    //phase ajustement
+    finDeTour();
+}
+
 void Joueur::achat(){
     /*Ne vérifie pas que le joueur peurt acheter*/
     //Calcule l'argent
@@ -42,6 +60,7 @@ void Joueur::achat(){
     }
 
     //Affiche les possibilitées et achète
+    std::cout<<"Acahts possibles : \n";
     std::vector<Carte*> liste_carte = Jeu::getListeCartesPiochesCoutMax(nb_piece);
     for (Carte* c: liste_carte){
         std::cout<<c<<std::endl;
@@ -55,6 +74,10 @@ void Joueur::achat(){
             nb_piece -= choix->getCout();
         }
     }
+}
+
+void Joueur::jouerCarte(){
+    //PAS ENCORE FAIT
 }
 
 void Joueur::melanger(){

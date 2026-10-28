@@ -12,8 +12,9 @@ public :
     static std::vector<Carte*> getCartesTresor(std::vector<Carte*> listeCartes);
 
     Joueur();
+    void tour();
     void achat();
-    void jouer(); //Pas encore fait
+    void jouerCarte(); //Pas encore fait
 
     void piocher(int nb);
     Carte* reveler();
@@ -33,7 +34,7 @@ public :
     void addNbAction(int nb);
     void addNbAchat(int nb);
     void addNbPiece(int nb);
-    
+
     void recevoirCarte(Carte* carte);
     void prendreCarte(Carte* carte);
     int getScore();
