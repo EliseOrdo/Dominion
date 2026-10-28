@@ -27,7 +27,7 @@ public :
     void addNbPiece(int nb);
     void recevoirCarte(Carte* carte);
     int getScore();
-    Carte* enleverCarte(std::string nom, std::vector<Carte*> liste);
+    
 };
 
 #endif

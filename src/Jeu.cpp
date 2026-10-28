@@ -33,26 +33,40 @@ Joueur Jeu::victoire(){
     return gagnant;
 }
 
-// PAS FINI
-Carte* Jeu::getCarte(std::string nom){
-    //n'enleve pas de carte de la pioche
+
+Carte* Jeu::prendreCartePioches(std::string nom){
+    /*retourne nullptr si ne trouve pas la carte*/
     for(auto pair:pioches){
         if(pair.first->getNom()==nom){
-            return pair.first;// TODO faudrait créer une nouvelle carte de même classe
+            if(pair.second>0){
+                pair.second -= 1;
+                if(pair.second==0){
+                    nb_pioches_vides += 1;
+                }
+                return pair.first->dupliquer();
+            }
         }
     }
+    return nullptr;
 }
 
-//PAS FINI
-/*bool Jeu::enleverCarte(std::string nom){
-    //renvoie true si on a pu enlever une carte de la pioche
-    if(pioches.at(carte)>0){ //TODO comparer les noms (regarder les autres endroits où on cherche avec les noms)
+Carte* Jeu::prendreCartePioches(Carte* carte){
+    /*retourne nullptr si ne trouve pas la carte*/
+    if(pioches.at(carte)>0){
         pioches.at(carte) -= 1;
         if(pioches.at(carte)==0){
             nb_pioches_vides += 1;
         }
-        return true;
-    }else{
-        return false;
-    } 
-}*/
+        return carte->dupliquer();
+    }
+    return nullptr;
+}
+
+Carte* Jeu::enleverCarte(std::string nom, std::vector<Carte*> liste){
+    for(int i=0; i<liste.size(); i++){
+        if(liste.at(i)->getNom()==nom){
+            liste.erase(liste.begin()+i);
+            return liste.at(i);
+        }
+    }
+}

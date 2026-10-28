@@ -12,8 +12,11 @@ class Jeu {
 public:
     static Carte* choisirCarte(std::vector<Carte*> listeCartes);
     static bool enleverCarte(std::string nom);
-    Carte* getCarte(std::string nom);
-    Joueur victoire();
+    static Carte* enleverCarte(std::string nom, std::vector<Carte*> liste);
+    static Carte* prendreCartePioches(std::string nom);
+    static Carte* prendreCartePioches(Carte* carte);
+    static Joueur victoire();
+    
 };
 
 #endif
