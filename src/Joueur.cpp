@@ -121,7 +121,7 @@ void Joueur::addNbPiece(int nb){
 }
 
 void Joueur::recevoirCarte(Carte* carte){
-    /*met la carte dans la main du joueur, pensée pour être appelée avec Jeu::enleverCarte()*/
+    /*met la carte dans la main du joueur*/
     main.push_back(carte);
 }
 
