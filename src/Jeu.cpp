@@ -2,6 +2,7 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <Reaction.h>
 
 std::map<Carte*, int> Jeu::pioches;
 std::vector<Joueur> Jeu::joueurs;
@@ -96,9 +97,16 @@ std::vector<Joueur> Jeu::getJoueursAffectes(Joueur j){
         if(j.getId() != j2.getId()){
             bool affect = true;
             for(Carte* c:j2.getMain()){
-                if(c->getNom() == "Douve"){
-                    affect = false;
-                    break;
+                Reaction* reactPtr = dynamic_cast<Reaction*>(c);
+                if(reactPtr){
+                    std::cout<<"vous pouvez réagir avec cette carte :\n"<<c<<"\nSouhaitez-vous la révéler ?\n";
+                    if(OuiNon()){
+                        if(c->getNom() == "Douve"){
+                            affect = false;
+                            break;
+                        }
+                        //effectuer la reaction de la carte
+                    }
                 }
             }
             if(affect){
