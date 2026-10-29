@@ -64,7 +64,7 @@ void Joueur::tour(){
     }
 
     //phase ajustement
-    finDeTour();
+    travailTermine();
 }
 
 void Joueur::achat(){
@@ -151,7 +151,7 @@ void Joueur::defausser(Carte* carte){
     defausse.push_back(carte);
 }
 
-void Joueur::finDeTour(){
+void Joueur::travailTermine(){
     nb_action = 1;
     nb_piece = 0;
     nb_achat = 1;
@@ -159,7 +159,11 @@ void Joueur::finDeTour(){
     for(Carte*carte:main){
         defausse.push_back(carte);
     }
+    for(Carte*carte:en_jeu){
+        defausse.push_back(carte);
+    }
     main = {};
+    en_jeu = {};
     piocher(5);
 }
 

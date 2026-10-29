@@ -26,7 +26,7 @@ public :
     int getIndCarteMain(std::string nom);
     
     void melanger();
-    void finDeTour();
+    void travailTermine();
     int getId();
 
     Carte* montrerCarteVictoire();
