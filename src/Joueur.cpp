@@ -47,6 +47,8 @@ void Joueur::tour(){
     bool continuer;
     //phase action
     while(nb_action > 0){
+        std::cout<<"Jouer une carte ?\n";
+        if(!Jeu::OuiNon()){break;}
         Joueur::jouerCarte();
     }
 
@@ -68,7 +70,7 @@ void Joueur::tour(){
 }
 
 void Joueur::achat(){
-    /*Ne vérifie pas que le joueur peurt acheter*/
+    /*Ne vérifie pas que le joueur peut acheter*/
 
     //Affiche les possibilitées et achète
     std::cout<<"Achats possibles : \n";
