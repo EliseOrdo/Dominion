@@ -81,7 +81,7 @@ void Joueur::achat(){
     }
 
     //Affiche les possibilitées et achète
-    std::cout<<"Acahts possibles : \n";
+    std::cout<<"Achats possibles : \n";
     std::vector<Carte*> liste_carte = Jeu::getListeCartesPiochesCoutMax(nb_piece);
     for (Carte* c: liste_carte){
         std::cout<<c<<std::endl;
