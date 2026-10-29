@@ -17,6 +17,7 @@ public:
     static Carte* prendreCartePioches(std::string nom);
     static Carte* prendreCartePioches(Carte* carte);
 
+    static std::vector<Joueur> getJoueurs(Joueur j);
     static std::vector<Joueur> getJoueursAffectes(Joueur j);
 
     static std::vector<Carte*> getListeCartesPiochesCoutMax(int cout_max);

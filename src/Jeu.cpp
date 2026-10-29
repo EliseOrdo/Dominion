@@ -91,6 +91,16 @@ Carte* Jeu::enleverCarte(std::string nom, std::vector<Carte*> liste){
     return nullptr;
 }
 
+std::vector<Joueur> Jeu::getJoueurs(Joueur j){
+    std::vector<Joueur> res = {};
+    for (Joueur j2:Jeu::joueurs){
+        if(j.getId() != j2.getId()){
+            res.push_back(j2);
+        }
+    }
+    return res;
+}
+
 std::vector<Joueur> Jeu::getJoueursAffectes(Joueur j){
     std::vector<Joueur> res = {};
     for (Joueur j2:Jeu::joueurs){
