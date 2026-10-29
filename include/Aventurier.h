@@ -1,11 +1,11 @@
 #ifndef AVENTURIER_H
 #define AVENTURIER_H
-#include "Action.h"
+#include "Royaume.h"
 
-class Aventurier: public Action{
+class Aventurier: public Royaume{
 public:
     Aventurier();
-    void effet(Joueur j);
+    void effet(Joueur j) override;
     Carte* dupliquer() const override{return new Aventurier();}
 };
 

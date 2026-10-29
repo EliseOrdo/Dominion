@@ -1,8 +1,8 @@
 #ifndef MARCHE_H
 #define MARCHE_H
-#include "Action.h"
+#include "Royaume.h"
 
-class Marche : protected Action {
+class Marche : protected Royaume {
 public:
     Marche();
     Carte* dupliquer() const override{return new Marche();}

@@ -4,6 +4,7 @@
 #include "Jardin.h"
 #include "Victoire.h"
 #include "Malediction.h"
+#include "Royaume.h"
 #include "Carte.h"
 #include <random>
 #include <algorithm>
@@ -44,7 +45,7 @@ Joueur::Joueur(){
 }
 
 void Joueur::tour(){
-    bool continuer;
+    std::cout<<"Tour du joueur "<<id<<std::endl;
     //phase action
     while(nb_action > 0){
         std::cout<<"Jouer une carte ?\n";
@@ -67,6 +68,10 @@ void Joueur::tour(){
 
     //phase ajustement
     travailTermine();
+    std::cout<<"Nouvelle main : \n";
+    for (Carte* c:main){
+        std::cout<<c<<std::endl;
+    }
 }
 
 void Joueur::achat(){
@@ -78,7 +83,7 @@ void Joueur::achat(){
     for (Carte* c: liste_carte){
         std::cout<<c<<std::endl;
     }
-    std::cout<<"Voulez-vous acheter ? \n";
+    std::cout<<"Acheter une carte ? \n";
     if(Jeu::OuiNon()){
         Carte* choix = Jeu::choisirCarte(Jeu::getListeCartesPiochesCoutMax(nb_piece));
         if(choix){
@@ -90,7 +95,22 @@ void Joueur::achat(){
 }
 
 void Joueur::jouerCarte(){
-    //PAS ENCORE FAIT
+    std::cout<<"Cartes en main : \n";
+    for (Carte*c:main){
+        std::cout<<c<<std::endl;
+    }
+    std::cout<<"Jouer une carte ? \n";
+    if(Jeu::OuiNon()){
+        Carte* carte;
+        Royaume* roy = nullptr;
+        do{
+            carte = Jeu::choisirCarte(main);
+            roy = dynamic_cast<Royaume*>(carte);
+        }while(!roy);
+        poserCarte(roy);
+        roy->effet(*this);
+    }
+    nb_action -= 1;
 }
 
 void Joueur::melanger(){
@@ -119,6 +139,12 @@ void Joueur::piocher(int nb){
         main.push_back(deck[deck.size()-1]);
         deck.pop_back();
     }
+}
+
+void Joueur::poserCarte(Carte* carte){
+    int indice = getIndCarteMain(carte->getNom());
+    main.erase(main.begin()+indice);
+    en_jeu.push_back(carte);
 }
 
 int Joueur::getId(){

@@ -1,9 +1,9 @@
 #ifndef SORCIERE_H
 #define SORCIERE_H
-#include "Action.h"
+#include "Royaume.h"
 #include "Attaque.h"
 
-class Sorciere : public virtual Attaque, public virtual Action {
+class Sorciere : public virtual Attaque, public virtual Royaume {
 public:
     Sorciere();
     void effet(Joueur j) override;

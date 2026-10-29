@@ -6,7 +6,7 @@
 
 std::map<Carte*, int> Jeu::pioches;
 std::vector<Joueur> Jeu::joueurs;
-int Jeu::nb_pioches_vides = 0;
+int Jeu::nb_pioches_vides = 1;
 
 Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     for(int i=0; i<int(listeCartes.size());i++){

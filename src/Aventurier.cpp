@@ -25,7 +25,7 @@ void Aventurier::effet(Joueur j){
         }
     }
     for(Carte* t:tres){
-        j.recevoirCarte(t);
+        j.Carte2Main(t);
     }
     for(Carte* c:l){
         j.defausser(c);

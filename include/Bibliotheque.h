@@ -1,11 +1,11 @@
 #ifndef BIBLIOTHEQUE_H
 #define BIBLIOTHEQUE_H
-#include "Action.h"
+#include "Royaume.h"
 
-class Bibliotheque : public Action{
+class Bibliotheque : public Royaume{
 public:
     Bibliotheque();
-    void effet(Joueur j);
+    void effet(Joueur j) override;
     Carte* dupliquer() const override{return new Bibliotheque();}
 };
 

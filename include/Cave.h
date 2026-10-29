@@ -1,8 +1,8 @@
 #ifndef CAVE_H
 #define CAVE_H
-#include "Action.h"
+#include "Royaume.h"
 
-class Cave: public Action {
+class Cave: public Royaume {
 public:
     Cave();
     void effet(Joueur j) override;

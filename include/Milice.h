@@ -1,9 +1,9 @@
 #ifndef MILICE_H
 #define MILICE_H
-#include "Action.h"
+#include "Royaume.h"
 #include "Attaque.h"
 
-class Milice : protected virtual Action, protected virtual Attaque{
+class Milice : protected virtual Royaume, protected virtual Attaque{
 public:
     Milice();
     Carte* dupliquer() const override{return new Milice();}

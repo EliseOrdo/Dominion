@@ -5,7 +5,7 @@
 Bibliotheque::Bibliotheque(){
     nom = "Bibliotheque";
     cout = 5;
-    description = "Piochez jusqu'à ce que vous ayez 7 cartes en main. Chaque carte Action piochée peut être mise de côté. Défaussez les cartes mises de côté lorsque vous avez terminé de piocher.;";
+    description = "Piochez jusqu'à ce que vous ayez 7 cartes en main. Chaque carte Royaume piochée peut être mise de côté. Défaussez les cartes mises de côté lorsque vous avez terminé de piocher.;";
 }
 
 void Bibliotheque::effet(Joueur j){
@@ -13,7 +13,7 @@ void Bibliotheque::effet(Joueur j){
     while(j.getMain().size()<7){
         j.piocher(1);
         Carte* c = j.getMain().back();
-        Action* actPtr = dynamic_cast<Action*>(c);
+        Royaume* actPtr = dynamic_cast<Royaume*>(c);
         if(actPtr){
             std::cout<<"Voulez-vous mettre la carte suivante de côté ?\n"<<c<<std::endl;
             if(Jeu::OuiNon()){

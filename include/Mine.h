@@ -1,7 +1,7 @@
 #ifndef MINE_H
 #define MINE_H
-#include "Action.h"
-class Mine: public Action {
+#include "Royaume.h"
+class Mine: public Royaume {
 public:
     Mine();
     void effet(Joueur j) override;

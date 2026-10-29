@@ -31,7 +31,7 @@ void Mine::effet(Joueur j){
     }
     if(c != nullptr){
         j.ecarter(carte->getNom());
-        j.recevoirCarte(c);
+        j.Carte2Main(c);
     }else{
         std::cout<<"Operation impossible\n";
     }

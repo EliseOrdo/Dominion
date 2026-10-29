@@ -1,9 +1,9 @@
 #ifndef BUREAUCRATE_H
 #define BUREAUCRATE_H
-#include "Action.h"
+#include "Royaume.h"
 #include "Attaque.h"
 
-class Bureaucrate: public virtual Action, public virtual Attaque{
+class Bureaucrate: public virtual Royaume, public virtual Attaque{
 public:
     Bureaucrate();
     void effet(Joueur j) override;

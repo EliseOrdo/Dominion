@@ -1,8 +1,8 @@
 #ifndef CDC_H
 #define CDC_H
-#include "Action.h"
+#include "Royaume.h"
 
-class ChambreDuConseil: public Action {
+class ChambreDuConseil: public Royaume {
 public:
     ChambreDuConseil();
     void effet(Joueur j) override;

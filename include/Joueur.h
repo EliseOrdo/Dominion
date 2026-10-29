@@ -22,10 +22,11 @@ public :
     Carte* reveler();
     void ecarter(std::string nom);
     void defausser(Carte* carte);
+    void melanger();
+    void poserCarte(Carte* carte);
 
     int getIndCarteMain(std::string nom);
     
-    void melanger();
     void travailTermine();
     int getId();
 

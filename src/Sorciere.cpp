@@ -13,7 +13,7 @@ void Sorciere::effet(Joueur j){
     for(Joueur j2:Jeu::getJoueursAffectes(j)){
         Carte* mal = Jeu::prendreCartePioches("Malediction");
         if(mal){
-            j2.prendreCarte(mal);
+            j2.Carte2Defausse(mal);
         }
     }
 }

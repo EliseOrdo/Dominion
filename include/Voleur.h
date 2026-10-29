@@ -1,9 +1,9 @@
 #ifndef VOLEUR_H
 #define VOLEUR_H
 #include "Attaque.h"
-#include "Action.h"
+#include "Royaume.h"
 
-class Voleur : public virtual Attaque, public virtual Action {
+class Voleur : public virtual Attaque, public virtual Royaume {
 public:
     Voleur();
     void effet(Joueur j) override;

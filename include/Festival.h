@@ -1,8 +1,8 @@
 #ifndef FESTIVAL_H
 #define FESTIVAL_H
-#include "Action.h"
+#include "Royaume.h"
 
-class Festival: public Action{
+class Festival: public Royaume{
 public:
     Festival();
     void effet(Joueur j) override;

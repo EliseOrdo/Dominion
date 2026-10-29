@@ -1,8 +1,8 @@
 #ifndef CHANCELIER_H
 #define CHANCELIER_H
-#include "Action.h"
+#include "Royaume.h"
 
-class Chancelier: public Action{
+class Chancelier: public Royaume{
 public:
     Chancelier();
     void effet(Joueur j) override;
