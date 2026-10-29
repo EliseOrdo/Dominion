@@ -11,7 +11,7 @@
 #include <stdexcept>
 #include <iostream>
 
-int Joueur::dernier_id = -1;
+int Joueur::dernier_id = 0;
 
 std::vector<Carte*> Joueur::getCartesTresor(std::vector<Carte*> listeCartes){
     std::vector<Carte*> res;
@@ -78,6 +78,7 @@ void Joueur::achat(){
     /*Ne vérifie pas que le joueur peut acheter*/
 
     //Affiche les possibilitées et achète
+    std::cout<<"Nombre d'achat restant : "<<nb_achat<<std::endl;
     std::cout<<"Achats possibles : \n";
     std::vector<Carte*> liste_carte = Jeu::getListeCartesPiochesCoutMax(nb_piece);
     for (Carte* c: liste_carte){
@@ -95,6 +96,7 @@ void Joueur::achat(){
 }
 
 void Joueur::jouerCarte(){
+    std::cout<<"Nombre d'action restante : "<<nb_action<<std::endl;
     std::cout<<"Cartes en main : \n";
     for (Carte*c:main){
         std::cout<<c<<std::endl;

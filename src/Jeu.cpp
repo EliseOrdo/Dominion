@@ -6,7 +6,23 @@
 
 std::map<Carte*, int> Jeu::pioches;
 std::vector<Joueur> Jeu::joueurs;
-int Jeu::nb_pioches_vides = 1;
+int Jeu::nb_pioches_vides = 0;
+
+void config(){
+    //Choisir mode rapide ou non
+    //Choisir nb_joueurs
+    //Créer les joueurs
+    //Créer leur deck, les mélanger et faire piocher leur main -> 7 cuivres et 3 domaines
+    //Détermination des cartes à acheter 
+    //"Les dix cartes royaumes peuvent être sélectionnées au début, soit parmi plusieurs sets de base, soit nominativement, soit aléatoirement"
+    //10 exemplaires de chaque carte royaume et 12 pour jardin
+    //Si 2 joueurs : 8 domaines, 8 duchés, 8 provinces 
+    //Si 3 à 4 : 12
+    //Malédiction : 2 joueurs -> 10; 3 joueurs -> 20; 4 joueurs -> 30
+    //60 cuivres (auxquelles on enlève celles que l'on a donné au début)
+    //40 argent
+    //30 or
+}
 
 Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     for(int i=0; i<int(listeCartes.size());i++){
@@ -19,7 +35,6 @@ Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
         std::cin.clear();//efface les bits d'erreur du buffer;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');// supprime la ligne erronée pour eviter boucle infinie
         std::cout<<"erreur, veuillez réessayer.\n";
-        
     }
     
     return listeCartes.at(rep);
