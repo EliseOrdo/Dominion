@@ -1,9 +1,9 @@
 #ifndef CHAP_H
 #define CHAP_H
-#include "Royaume.h"
+#include "Action.h"
 
 
-class Chapelle : public Royaume {
+class Chapelle : public Action {
 public:
     Chapelle();
     void effet(Joueur j) override;

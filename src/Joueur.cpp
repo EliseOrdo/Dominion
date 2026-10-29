@@ -135,6 +135,11 @@ void Joueur::ecarter(std::string nom){
     
 }
 
+void Joueur::defausser(Carte* carte){
+    /*met la carte dans la defausse du joueur !!ne la retire pas de là où elle vient!!*/
+    defausse.push_back(carte);
+}
+
 void Joueur::finDeTour(){
     nb_action = 1;
     nb_piece = 0;

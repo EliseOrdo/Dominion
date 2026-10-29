@@ -1,9 +1,9 @@
 #ifndef DOUVE_H
 #define DOUVE_H
-#include "Attaque.h"
+#include "Action.h"
 #include "Reaction.h"
 
-class Douve : virtual Attaque, virtual Reaction {
+class Douve : virtual Action, virtual Reaction {
 public:
     Douve();
     void effet(Joueur j) override;

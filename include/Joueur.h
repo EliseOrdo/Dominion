@@ -19,6 +19,7 @@ public :
     void piocher(int nb);
     Carte* reveler();
     void ecarter(std::string nom);
+    void defausser(Carte* carte);
 
     int getIndCarteMain(std::string nom);
     
