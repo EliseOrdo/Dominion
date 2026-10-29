@@ -69,7 +69,7 @@ void Joueur::achat(){
     if(Jeu::OuiNon()){
         Carte* choix = Jeu::choisirCarte(Jeu::getListeCartesPiochesCoutMax(nb_piece));
         if(choix){
-            Joueur::prendreCarte(Jeu::prendreCartePioches(choix));
+            Joueur::Carte2Defausse(Jeu::prendreCartePioches(choix));
             nb_achat -=1;
             nb_piece -= choix->getCout();
         }
@@ -190,15 +190,21 @@ void Joueur::addNbPiece(int nb){
     nb_piece += nb;
 }
 
-void Joueur::recevoirCarte(Carte* carte){
+void Joueur::Carte2Main(Carte* carte){
     /*met la carte dans la main du joueur*/
     main.push_back(carte);
 }
 
-void Joueur::prendreCarte(Carte* carte){
-    /*met la carte dans la main du joueur*/
+void Joueur::Carte2Defausse(Carte* carte){
+    /*met la carte dans la defausse du joueur*/
     defausse.push_back(carte);
 }
+
+void Joueur::Carte2Deck(Carte* carte){
+    /*met la carte dans la defausse du joueur*/
+    deck.push_back(carte);
+}
+
 
 int Joueur::getScore(){
     int score = 0;

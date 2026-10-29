@@ -33,13 +33,14 @@ public :
     std::vector<Carte*> getMain();
     std::vector<Carte*> getDefausse();
     std::vector<Carte*> getDeck();
-    
+
     void addNbAction(int nb);
     void addNbAchat(int nb);
     void addNbPiece(int nb);
 
-    void recevoirCarte(Carte* carte);
-    void prendreCarte(Carte* carte);
+    void Carte2Main(Carte* carte);
+    void Carte2Defausse(Carte* carte);
+    void Carte2Deck(Carte* carte);
     int getScore();
     
 };
