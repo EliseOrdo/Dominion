@@ -23,6 +23,27 @@ std::vector<Carte*> Joueur::getCartesTresor(std::vector<Carte*> listeCartes){
     return res;
 }
 
+std::vector<Carte*> Joueur::getCartesVictoire(std::vector<Carte*> listeCartes){
+    std::vector<Carte*> res;
+    for(Carte* cartePtr : listeCartes){
+        Victoire* victoirePtr = dynamic_cast<Victoire*>(cartePtr);
+        if(victoirePtr){
+            res.push_back(cartePtr);
+        }
+    }
+    return res;
+}
+
+Carte* Joueur::montrerCarteVictoire(){
+    std::vector<Carte*> lv = Joueur::getCartesVictoire(main);
+    if(lv.size()>0){
+        return Jeu::choisirCarte(lv);
+    }else{
+        return nullptr;
+    }
+}
+
+
 Joueur::Joueur(){
     dernier_id += 1;
     id = dernier_id;

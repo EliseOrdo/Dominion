@@ -10,6 +10,9 @@ public :
     static int dernier_id;
 
     static std::vector<Carte*> getCartesTresor(std::vector<Carte*> listeCartes);
+    static std::vector<Carte*> getCartesVictoire(std::vector<Carte*> listeCartes);
+
+    Carte* montrerCarteVictoire();
 
     Joueur();
     void tour();
