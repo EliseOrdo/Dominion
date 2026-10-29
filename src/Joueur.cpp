@@ -34,15 +34,6 @@ std::vector<Carte*> Joueur::getCartesVictoire(std::vector<Carte*> listeCartes){
     return res;
 }
 
-Carte* Joueur::montrerCarteVictoire(){
-    std::vector<Carte*> lv = Joueur::getCartesVictoire(main);
-    if(lv.size()>0){
-        return Jeu::choisirCarte(lv);
-    }else{
-        return nullptr;
-    }
-}
-
 
 Joueur::Joueur(){
     dernier_id += 1;
@@ -172,6 +163,14 @@ void Joueur::finDeTour(){
     piocher(5);
 }
 
+Carte* Joueur::montrerCarteVictoire(){
+    std::vector<Carte*> lv = Joueur::getCartesVictoire(main);
+    if(lv.size()>0){
+        return Jeu::choisirCarte(lv);
+    }else{
+        return nullptr;
+    }
+}
 
 
 int Joueur::getNbAction(){

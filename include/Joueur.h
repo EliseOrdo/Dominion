@@ -12,7 +12,6 @@ public :
     static std::vector<Carte*> getCartesTresor(std::vector<Carte*> listeCartes);
     static std::vector<Carte*> getCartesVictoire(std::vector<Carte*> listeCartes);
 
-    Carte* montrerCarteVictoire();
 
     Joueur();
     void tour();
@@ -29,6 +28,8 @@ public :
     void melanger();
     void finDeTour();
     int getId();
+
+    Carte* montrerCarteVictoire();
 
     int getNbAction();
     int getNbAchat();
