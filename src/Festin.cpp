@@ -9,5 +9,5 @@ Festin::Festin(){
 
 void Festin::effet(Joueur j){
     j.ecarter(nom);
-    j.prendreCarte(Jeu::prendreCartePioches(Jeu::choisirCarte(Jeu::getListeCartesPiochesCoutMax(5))));
+    j.Carte2Defausse(Jeu::prendreCartePioches(Jeu::choisirCarte(Jeu::getListeCartesPiochesCoutMax(5))));
 }
