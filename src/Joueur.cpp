@@ -170,6 +170,14 @@ std::vector<Carte*> Joueur::getMain(){
     return main;
 }
 
+std::vector<Carte*> Joueur::getDefausse(){
+    return defausse;
+}
+
+std::vector<Carte*> Joueur::getDeck(){
+    return deck;
+}
+
 void Joueur::addNbAction(int nb){
     nb_action += nb;
 }

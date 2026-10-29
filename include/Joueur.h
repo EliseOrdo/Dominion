@@ -31,7 +31,9 @@ public :
     int getNbAchat();
     int getNbPiece();
     std::vector<Carte*> getMain();
-
+    std::vector<Carte*> getDefausse();
+    std::vector<Carte*> getDeck();
+    
     void addNbAction(int nb);
     void addNbAchat(int nb);
     void addNbPiece(int nb);
