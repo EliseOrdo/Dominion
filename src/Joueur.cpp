@@ -12,6 +12,27 @@
 
 int Joueur::dernier_id = -1;
 
+std::vector<Carte*> Joueur::getCartesTresor(std::vector<Carte*> listeCartes){
+    std::vector<Carte*> res;
+    for(Carte* cartePtr : listeCartes){
+        Tresor* tresorPtr = dynamic_cast<Tresor*>(cartePtr);
+        if(tresorPtr){
+            res.push_back(cartePtr);
+        }
+    }
+    return res;
+}
+
+std::vector<Carte*> Joueur::getCartesVictoire(std::vector<Carte*> listeCartes){
+    std::vector<Carte*> res;
+    for(Carte* cartePtr : listeCartes){
+        Victoire* victoirePtr = dynamic_cast<Victoire*>(cartePtr);
+        if(victoirePtr){
+            res.push_back(cartePtr);
+        }
+    }
+    return res;
+}
 
 
 Joueur::Joueur(){
@@ -140,28 +161,6 @@ void Joueur::finDeTour(){
     }
     main = {};
     piocher(5);
-}
-
-std::vector<Carte*> Joueur::getCartesTresor(std::vector<Carte*> listeCartes){
-    std::vector<Carte*> res;
-    for(Carte* cartePtr : listeCartes){
-        Tresor* tresorPtr = dynamic_cast<Tresor*>(cartePtr);
-        if(tresorPtr){
-            res.push_back(cartePtr);
-        }
-    }
-    return res;
-}
-
-std::vector<Carte*> Joueur::getCartesVictoire(std::vector<Carte*> listeCartes){
-    std::vector<Carte*> res;
-    for(Carte* cartePtr : listeCartes){
-        Victoire* victoirePtr = dynamic_cast<Victoire*>(cartePtr);
-        if(victoirePtr){
-            res.push_back(cartePtr);
-        }
-    }
-    return res;
 }
 
 Carte* Joueur::montrerCarteVictoire(){
