@@ -60,6 +60,12 @@ void Joueur::tour(){
     }
 
     //phase achat
+    for(Carte* c:main){
+        Tresor* tres = dynamic_cast<Tresor*>(c);
+        if(tres){
+            nb_piece += tres->getCout();
+        }
+    }
     while(nb_achat > 0){
         std::cout<<"Faire un achat ?\n";
         if(!Jeu::OuiNon()){break;}
@@ -72,13 +78,6 @@ void Joueur::tour(){
 
 void Joueur::achat(){
     /*Ne vérifie pas que le joueur peurt acheter*/
-    //Calcule l'argent
-    for(Carte* c:main){
-        Tresor* tres = dynamic_cast<Tresor*>(c);
-        if(tres){
-            nb_piece += tres->getCout();
-        }
-    }
 
     //Affiche les possibilitées et achète
     std::cout<<"Achats possibles : \n";
