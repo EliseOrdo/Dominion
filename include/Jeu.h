@@ -11,6 +11,7 @@ class Jeu {
     static int nb_pioches_vides;
 public:
     static void config();
+    static void premierePartie(bool rapide);
 
     static Carte* choisirCarte(std::vector<Carte*> listeCartes);
     static bool enleverCarte(std::string nom);

@@ -1,6 +1,21 @@
 #include "Jeu.h"
 #include "Domaine.h"
+#include "Duche.h"
+#include "Province.h"
 #include "Cuivre.h"
+#include "Argent.h"
+#include "Or.h"
+#include "Malediction.h"
+#include "Atelier.h"
+#include "Bucheron.h"
+#include "Cave.h"
+#include "Douve.h"
+//#include "Forgeron.h"
+#include "Marche.h"
+#include "Milice.h"
+#include "Mine.h"
+#include "Festin.h"
+#include "Village.h"
 #include <iostream>
 #include <limits>
 #include <string>
@@ -45,27 +60,43 @@ void Jeu::config(){
     }while(choix!="r" and choix!="n");
     if(choix == "r"){
         //initier partie rapide
+        Jeu::premierePartie(true);
     }
     if(choix == "n"){
         //initier partie
-        int nb_cuivre = 60 - joueurs.size()*7;
+        //Reste le meme pour tt config
+        pioches[new Cuivre()] = 60 - joueurs.size()*7;
+        pioches[new Argent()] = 40;
+        pioches[new Or()] = 30;
+        pioches[new Malediction()] = (joueurs.size()-1)*10;
+        if(joueurs.size()==2){
+            pioches[new Domaine()] = 8;
+            pioches[new Duche()] = 8;
+            pioches[new Province()] = 8;
+        }else{
+            pioches[new Domaine()] = 12;
+            pioches[new Duche()] = 12;
+            pioches[new Province()] = 12;
+        }
+        //Config "Première partie"
+        Jeu::premierePartie(false);
     }
-    //URGENT : SE CONCENTRER SUR LE MINIMUM POUR LE RAPPORT, CHOISIR NOUS MEME DANS LE CODE LES 10 CARTES ROYAUMES
 
     //Détermination des cartes à acheter 
     //"Les dix cartes royaumes peuvent être sélectionnées au début, soit parmi plusieurs sets de base, soit nominativement, soit aléatoirement"
     //10 exemplaires de chaque carte royaume et 12 pour jardin
-    //Si 2 joueurs : 8 domaines, 8 duchés, 8 provinces 
-    //Si 3 à 4 : 12
-    //Malédiction : 2 joueurs -> 10; 3 joueurs -> 20; 4 joueurs -> 30
-    //60 cuivres (auxquelles on enlève celles que l'on a donné au début)
-    //j'arrive pas a dormir donc je continu sur tel (verifie un peu ces lignes)
 
-    //40 argent
-    //30 or
+
 }
 
-void tour(){
+void Jeu::premierePartie(bool rapide){
+    int nb = 10;
+    if(rapide){nb = 1;}
+    pioches[new Atelier()] = nb;
+    pioches[new Bucheron()] = nb;
+}
+
+void Jeu::tour(){
     //alterner entre les joueurs
     //Vérifier que la partie n'est pas finie
 }

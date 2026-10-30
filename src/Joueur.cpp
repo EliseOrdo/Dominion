@@ -173,7 +173,18 @@ void Joueur::ecarter(std::string nom){
     catch (std::invalid_argument& e){
         std::cerr<< e.what()<<"\n";
     }
-    
+}
+
+void Joueur::ecarter_en_jeu(std::string nom){
+    /*détruit la carte posée*/
+    for (size_t i = 0; i < en_jeu.size(); i++){
+        Carte* c = en_jeu.at(i); 
+        if(c->getNom() == nom){
+            en_jeu.erase(en_jeu.begin()+i);
+            delete c;
+            break;
+        }
+    }
 }
 
 void Joueur::defausser(Carte* carte){

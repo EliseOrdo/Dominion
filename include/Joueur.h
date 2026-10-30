@@ -16,11 +16,12 @@ public :
     Joueur();
     void tour();
     void achat();
-    void jouerCarte(); //Pas encore fait
+    void jouerCarte();
 
     void piocher(int nb);
     Carte* reveler();
     void ecarter(std::string nom);
+    void ecarter_en_jeu(std::string nom);
     void defausser(Carte* carte);
     void melanger();
     void poserCarte(Carte* carte);
