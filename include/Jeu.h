@@ -24,6 +24,7 @@ public:
     static Joueur victoire();
     static bool OuiNon();
     
+    static void tour();
 };
 
 #endif

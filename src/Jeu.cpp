@@ -24,6 +24,11 @@ void config(){
     //30 or
 }
 
+void tour(){
+    //alterner entre les joueurs
+    //Vérifier que la partie n'est pas finie
+}
+
 Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     for(int i=0; i<int(listeCartes.size());i++){
         std::cout<<i<<": \n"<<listeCartes.at(i)<<std::endl;

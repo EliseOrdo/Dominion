@@ -1,7 +1,7 @@
 #ifndef DOUVE_H
 #define DOUVE_H
 #include "Royaume.h"
-#include "ReRoyaume.h"
+#include "Reaction.h"
 
 class Douve : virtual Royaume, virtual Reaction {
 public:
