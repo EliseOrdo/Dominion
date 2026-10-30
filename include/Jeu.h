@@ -24,6 +24,7 @@ public:
 
     static std::vector<Carte*> getListeCartesPiochesCoutMax(int cout_max);
     static Joueur victoire();
+    static void fin();
     static bool OuiNon();
     
     static void tour();
