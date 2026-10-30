@@ -48,7 +48,7 @@ std::vector<Carte*> cartes_place_du_village = {new Bibliotheque(), new Bucheron(
 std::vector<Carte*> cartes_depart;
 
 void choix_depart(){
-    std::cout<<"Quel ensemble choisissez vous ? (premieres parties: 0, richesses et tresors: 1, interaction: 2, changement taille : 3, place du village : 4\n";
+    std::cout<<"\n\nQuel ensemble choisissez vous ? (premieres parties: 0, richesses et tresors: 1, interaction: 2, changement taille : 3, place du village : 4)\n";
     int rep;
     while(!(std::cin>>rep) or rep<0 or 4<rep){
         std::cin.clear();//efface les bits d'erreur du buffer;
