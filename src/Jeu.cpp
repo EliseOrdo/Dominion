@@ -42,7 +42,7 @@ void Jeu::config(){
     do{
         std::cout<<"Choisir mode de partie : \n r : partie rapide \n n : partie normale\n";
         std::cin>>choix;
-    }while(choix!="r" || choix!="n");
+    }while(choix!="r" and choix!="n");
     if(choix == "r"){
         //initier partie rapide
     }
