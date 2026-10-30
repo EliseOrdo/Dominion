@@ -10,6 +10,8 @@ class Jeu {
     static std::vector<Joueur> joueurs;
     static int nb_pioches_vides;
 public:
+    static void config();
+
     static Carte* choisirCarte(std::vector<Carte*> listeCartes);
     static bool enleverCarte(std::string nom);
     static Carte* enleverCarte(std::string nom, std::vector<Carte*> liste);

@@ -1,18 +1,55 @@
 #include "Jeu.h"
+#include "Domaine.h"
+#include "Cuivre.h"
 #include <iostream>
 #include <limits>
 #include <string>
 #include <Reaction.h>
+#include <iostream>
 
 std::map<Carte*, int> Jeu::pioches;
 std::vector<Joueur> Jeu::joueurs;
 int Jeu::nb_pioches_vides = 0;
 
-void config(){
-    //Choisir mode rapide ou non
-    //Choisir nb_joueurs
-    //Créer les joueurs
-    //Créer leur deck, les mélanger et faire piocher leur main -> 7 cuivres et 3 domaines
+void Jeu::config(){
+    //Nombre de joueurs
+    int rep;
+    std::cout<<"Combien de joueurs (entre 2 et 4) ?\n";
+    while(!(std::cin>>rep) or rep<2 or 4<rep){
+        std::cin.clear();//efface les bits d'erreur du buffer;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');// supprime la ligne erronée pour eviter boucle infinie
+        std::cout<<"erreur, veuillez réessayer.\n";
+    }
+    joueurs = {};
+    for(int i=0; i<rep; i++){
+        joueurs.push_back(Joueur());
+    }
+
+    for (Joueur j:joueurs){
+        for(int i = 0; i<3; i++){
+            Domaine* d = new Domaine();
+            j.Carte2Defausse(d);
+        }
+        for(int i = 0; i<7; i++){
+            Cuivre* c = new Cuivre();
+            j.Carte2Defausse(c);
+        }
+        j.piocher(5);
+    }
+
+    //Partie rapide ou non
+    std::string choix;
+    do{
+        std::cout<<"Choisir mode de partie : \n r : partie rapide \n n : partie normale\n";
+        std::cin>>choix;
+    }while(choix!="r" || choix!="n");
+    if(choix == "r"){
+        //initier partie rapide
+    }
+    if(choix == "n"){
+        //initier partie
+    }
+
     //Détermination des cartes à acheter 
     //"Les dix cartes royaumes peuvent être sélectionnées au début, soit parmi plusieurs sets de base, soit nominativement, soit aléatoirement"
     //10 exemplaires de chaque carte royaume et 12 pour jardin
