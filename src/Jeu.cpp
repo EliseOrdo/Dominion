@@ -48,6 +48,7 @@ void Jeu::config(){
     }
     if(choix == "n"){
         //initier partie
+        int nb_cuivre = 60 - joueurs.size()*7;
     }
     //URGENT : SE CONCENTRER SUR LE MINIMUM POUR LE RAPPORT, CHOISIR NOUS MEME DANS LE CODE LES 10 CARTES ROYAUMES
 
@@ -58,6 +59,8 @@ void Jeu::config(){
     //Si 3 à 4 : 12
     //Malédiction : 2 joueurs -> 10; 3 joueurs -> 20; 4 joueurs -> 30
     //60 cuivres (auxquelles on enlève celles que l'on a donné au début)
+    //j'arrive pas a dormir donc je continu sur tel (verifie un peu ces lignes)
+
     //40 argent
     //30 or
 }
@@ -108,6 +111,9 @@ Joueur Jeu::victoire(){
         }
     }
     return gagnant;
+}
+
+void Jeu::fin(){
 }
 
 
