@@ -29,7 +29,7 @@ int Jeu::nb_pioches_vides = 0;
 void Jeu::config(){
     //Nombre de joueurs
     int rep;
-    std::cout<<"Combien de joueurs (entre 2 et 4) ?\n";
+    std::cout<<"\nCombien de joueurs (entre 2 et 4) ?\n";
     while(!(std::cin>>rep) or rep<2 or 4<rep){
         std::cin.clear();//efface les bits d'erreur du buffer;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');// supprime la ligne erronée pour eviter boucle infinie
@@ -55,7 +55,7 @@ void Jeu::config(){
     //Partie rapide ou non
     std::string choix;
     do{
-        std::cout<<"Choisir mode de partie : \n r : partie rapide \n n : partie normale\n";
+        std::cout<<"\n\nChoisir mode de partie : \n r : partie rapide \n n : partie normale\n";
         std::cin>>choix;
     }while(choix!="r" and choix!="n");
     if(choix == "r"){
@@ -129,12 +129,13 @@ bool Jeu::tour(){
 }
 
 Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
+    std::cout<<std::endl;
     for(int i=0; i<int(listeCartes.size());i++){
         std::cout<<i<<": \n"<<listeCartes.at(i)<<std::endl;
     }
     //bool retry = false;
     int rep;
-    std::cout<<"quel est votre choix ?\n";
+    std::cout<<"Quel est votre choix ?\n";
     while(!(std::cin>>rep) or rep<0 or int(listeCartes.size())<rep){
         std::cin.clear();//efface les bits d'erreur du buffer;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');// supprime la ligne erronée pour eviter boucle infinie
