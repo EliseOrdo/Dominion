@@ -233,10 +233,11 @@ std::vector<Joueur*> Jeu::getJoueursAffectes(Joueur* j){
             for(Carte* c:j2->getMain()){
                 Reaction* reactPtr = dynamic_cast<Reaction*>(c);
                 if(reactPtr){
-                    std::cout<<"vous pouvez réagir avec cette carte :\n"<<c<<"\nSouhaitez-vous la révéler ?\n";
+                    std::cout<<"Vous pouvez réagir avec cette carte :\n"<<c<<"\nSouhaitez-vous la révéler ?\n";
                     if(OuiNon()){
                         if(c->getNom() == "Douve"){
                             affect = false;
+                            std::cout<<"Joueur "<<j2->getId()<<" a joué Douve, l'effet ne s'applique pas sur lui\n";
                             break;
                         }
                         //effectuer la reaction de la carte
