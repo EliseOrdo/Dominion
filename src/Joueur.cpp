@@ -173,6 +173,10 @@ void Joueur::ecarter(std::string nom){
     }
 }
 
+void Joueur::enleverDeMain(std::string nom){
+    main.erase(main.begin()+getIndCarteMain(nom));
+}
+
 void Joueur::ecarter_en_jeu(std::string nom){
     /*détruit la carte posée*/
     for (size_t i = 0; i < en_jeu.size(); i++){

@@ -15,8 +15,9 @@ void Milice::effet(Joueur* j){
         while(adv->getMain().size()>3){
             std::cout<<"choisissez une carte à defausser :\n";
             Carte* c = Jeu::choisirCarte(adv->getMain());
-            adv->getMain().erase(adv->getMain().begin()+adv->getIndCarteMain(c->getNom()));
+            adv->enleverDeMain(c->getNom());
             adv->defausser(c);
         }
     }
+    std::cout<<"Fin de l'effet, retour tour joueur "<<j->getId()<<std::endl;
 }

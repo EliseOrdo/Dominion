@@ -17,7 +17,7 @@ void Cave::effet(Joueur* j){
     for(int i=0; i<nb;i++){
         Carte* c =Jeu::choisirCarte(j->getMain());
         lc.push_back(c);
-        j->getMain().erase(j->getMain().begin()+j->getIndCarteMain(c->getNom()));
+        j->enleverDeMain(c->getNom()); 
     }
     for(Carte* c: lc){
         j->defausser(c);

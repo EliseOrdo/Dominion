@@ -21,7 +21,7 @@ void Bureaucrate::effet(Joueur* j){
         }else{
             std::cout<<"Joueur "<<adv->getId()<<" :\n"<<c<<std::endl;
             adv->Carte2Deck(c);//met la carte dans le deck du joueur concerné
-            adv->getMain().erase(adv->getMain().begin()+adv->getIndCarteMain(c->getNom())); //enleve la carte de sa main
+            adv->enleverDeMain(c->getNom()); //enleve la carte de sa main
         }
     }
 }
