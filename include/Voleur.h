@@ -3,7 +3,7 @@
 #include "Attaque.h"
 #include "Royaume.h"
 
-class Voleur : public virtual Attaque, public virtual Royaume {
+class Voleur : public virtual Attaque{
 public:
     Voleur();
     void effet(Joueur* j) override;
