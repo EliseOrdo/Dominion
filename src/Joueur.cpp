@@ -35,6 +35,17 @@ std::vector<Carte*> Joueur::getCartesVictoire(std::vector<Carte*> listeCartes){
     return res;
 }
 
+std::vector<Carte*> Joueur::getCartesRoyaume(std::vector<Carte*> listeCartes){
+    std::vector<Carte*> res;
+    for(Carte* cartePtr : listeCartes){
+        Royaume* royPtr = dynamic_cast<Royaume*>(cartePtr);
+        if(royPtr){
+            res.push_back(cartePtr);
+        }
+    }
+    return res;
+}
+
 
 Joueur::Joueur(){
     dernier_id += 1;
