@@ -52,6 +52,7 @@ void Jeu::config(){
     }
     //URGENT : SE CONCENTRER SUR LE MINIMUM POUR LE RAPPORT, CHOISIR NOUS MEME DANS LE CODE LES 10 CARTES ROYAUMES
 
+
     //Détermination des cartes à acheter 
     //"Les dix cartes royaumes peuvent être sélectionnées au début, soit parmi plusieurs sets de base, soit nominativement, soit aléatoirement"
     //10 exemplaires de chaque carte royaume et 12 pour jardin
@@ -65,7 +66,7 @@ void Jeu::config(){
     //30 or
 }
 
-void tour(){
+void Jeu::tour(){
     //alterner entre les joueurs
     //Vérifier que la partie n'est pas finie
 }
