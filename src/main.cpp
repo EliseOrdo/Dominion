@@ -6,12 +6,6 @@
 #include "Bucheron.h"
 
 int main(){
-    Joueur j = Joueur();
-    Carte* b = new Bucheron();
-    Carte* c = new Cuivre();
-    std::vector<Carte*> liste = { b, c};
-    Jeu::choisirCarte(liste);
-    delete b;
-    delete c;
+    Jeu::config();
     return 0;
 }
