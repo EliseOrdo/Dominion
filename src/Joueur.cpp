@@ -45,7 +45,7 @@ Joueur::Joueur(){
 }
 
 void Joueur::tour(){
-    std::cout<<"Tour du joueur "<<id<<std::endl;
+    std::cout<<"\nTour du joueur "<<id<<std::endl;
     //phase action
     while(nb_action > 0){
         Joueur::jouerCarte();
@@ -74,9 +74,9 @@ void Joueur::achat(){
     /*Ne vérifie pas que le joueur peut acheter*/
 
     //Affiche les possibilitées et achète
-    std::cout<<"Nombre d'achat restant : "<<nb_achat<<std::endl;
+    std::cout<<"\n\nNombre d'achat restant : "<<nb_achat<<std::endl;
     std::cout<<"Vous avez "<<nb_piece<<" pieces\n";
-    std::cout<<"Achats possibles : \n";
+    std::cout<<"Achats possibles : \n\n";
     std::vector<Carte*> liste_carte = Jeu::getListeCartesPiochesCoutMax(nb_piece);
     for (Carte* c: liste_carte){
         std::cout<<c<<std::endl;
@@ -85,6 +85,7 @@ void Joueur::achat(){
     if(Jeu::OuiNon()){
         Carte* choix = Jeu::choisirCarte(Jeu::getListeCartesPiochesCoutMax(nb_piece));
         if(choix){
+            std::cout<<std::endl;
             Joueur::Carte2Defausse(Jeu::prendreCartePioches(choix));
             nb_piece -= choix->getCout();
         }
@@ -93,8 +94,9 @@ void Joueur::achat(){
 }
 
 void Joueur::jouerCarte(){
-    std::cout<<"Nombre d'action restante : "<<nb_action<<std::endl;
+    std::cout<<"\nNombre d'action restante : "<<nb_action<<std::endl;
     std::cout<<"Cartes en main : \n";
+    std::cout<<std::endl;
     for (Carte*c:main){
         std::cout<<c<<std::endl;
     }
