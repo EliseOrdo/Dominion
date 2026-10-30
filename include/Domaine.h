@@ -3,9 +3,6 @@
 #include "Victoire.h"
 
 class Domaine : public Victoire{
-    protected:
-        int points;
-    
     public:
         Domaine();
         int get_points(){return points;};
