@@ -159,8 +159,8 @@ bool Jeu::tour(){
     //Vérifier que la partie n'est pas finie
     for(Joueur* j:joueurs){
         j->tour();
-        int nb_prov;
-        for(auto pair:pioches){
+        int nb_prov = 0;
+        for(const auto& pair:pioches){
             if(pair.first->getNom()=="Province"){
                 nb_prov = pair.second;
             }
@@ -222,12 +222,13 @@ void Jeu::fin(){
 
 Carte* Jeu::prendreCartePioches(std::string nom){
     /*retourne nullptr si ne trouve pas la carte*/
-    for(auto pair:pioches){
+    for(auto& pair:pioches){
         if(pair.first->getNom()==nom){
             if(pair.second>0){
                 pair.second -= 1;
                 if(pair.second==0){
                     nb_pioches_vides += 1;
+                    pioches.erase(pair.first);
                 }
                 return pair.first->dupliquer();
             }
@@ -236,12 +237,14 @@ Carte* Jeu::prendreCartePioches(std::string nom){
     return nullptr;
 }
 
+
 Carte* Jeu::prendreCartePioches(Carte* carte){
     /*retourne nullptr si ne trouve pas la carte*/
     if(pioches.at(carte)>0){
         pioches.at(carte) -= 1;
         if(pioches.at(carte)==0){
             nb_pioches_vides += 1;
+            pioches.erase(carte);
         }
         return carte->dupliquer();
     }

@@ -11,7 +11,7 @@ public :
 
     static std::vector<Carte*> getCartesTresor(std::vector<Carte*> listeCartes);
     static std::vector<Carte*> getCartesVictoire(std::vector<Carte*> listeCartes);
-    static std::vector<Carte*> getCartesRoyaume(std::vector<Carte*> listeCartes);
+    static std::vector<Carte*> getCartesAction(std::vector<Carte*> listeCartes);
 
 
     Joueur();

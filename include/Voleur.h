@@ -1,7 +1,7 @@
 #ifndef VOLEUR_H
 #define VOLEUR_H
 #include "Attaque.h"
-#include "Royaume.h"
+
 
 class Voleur : public virtual Attaque{
 public:

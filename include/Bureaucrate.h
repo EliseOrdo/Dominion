@@ -1,6 +1,5 @@
 #ifndef BUREAUCRATE_H
 #define BUREAUCRATE_H
-#include "Royaume.h"
 #include "Attaque.h"
 
 class Bureaucrate: public virtual Attaque{

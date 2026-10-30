@@ -1,8 +1,8 @@
 #ifndef BUCHERON_H
 #define BUCHERON_H
-#include "Royaume.h"
+#include "Action.h"
 
-class Bucheron : public  Royaume {
+class Bucheron : public  Action {
 public:
     Bucheron();
     void effet(Joueur* j) override;

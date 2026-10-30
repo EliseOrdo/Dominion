@@ -1,8 +1,8 @@
 #ifndef VILLAGE_H
 #define VILLAGE_H
-#include "Royaume.h"
+#include "Action.h"
 
-class Village : public Royaume {
+class Village : public Action {
 public:
     Village();
     Carte* dupliquer() const override{return new Village();}

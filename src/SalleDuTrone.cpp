@@ -9,11 +9,11 @@ SalleDuTrone::SalleDuTrone(){
 }
 
 void SalleDuTrone::effet(Joueur* j){
-    std::vector<Carte*> lc = Joueur::getCartesRoyaume(j->getMain());
+    std::vector<Carte*> lc = Joueur::getCartesAction(j->getMain());
     std::cout<<"Voulez-vous jouer une carte Action 2 fois ?\n";
     if(Jeu::OuiNon()){
         Carte * c = Jeu::choisirCarte(lc);
-        Royaume* royPtr = dynamic_cast<Royaume*>(c);
+        Action* royPtr = dynamic_cast<Action*>(c);
         royPtr->effet(j);
         royPtr->effet(j);
     }

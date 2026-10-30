@@ -1,8 +1,8 @@
 #ifndef LABO_H
 #define LABO_H
-#include "Royaume.h"
+#include "Action.h"
 
-class Laboratoire : public Royaume {
+class Laboratoire : public Action {
 public:
     Laboratoire();
     Carte* dupliquer() const override{return new Laboratoire();}
