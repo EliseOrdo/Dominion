@@ -99,6 +99,23 @@ void Jeu::premierePartie(bool rapide){
 void Jeu::tour(){
     //alterner entre les joueurs
     //Vérifier que la partie n'est pas finie
+    for(Joueur j:joueurs){
+        std::cout<<"tour du joueur "<<j.getId()<<std::endl;
+        j.tour();
+        int nb_prov;
+        for(auto pair:pioches){
+            if(pair.first->getNom()=="Province"){
+                nb_prov = pair.second;
+            }
+        }
+        if(nb_pioches_vides>= 3 or nb_prov==0){
+            //fin de partie
+            std::cout<<"La partie est finie !\nCalcul du gagnant...\n";
+            std::cout<<"Le joueur "<<victoire().getId()<<" est victorieux ! Bravo !\n";
+            fin();
+            break;
+        }
+    }
 }
 
 Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
