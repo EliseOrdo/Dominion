@@ -281,6 +281,13 @@ int Joueur::getScore(){
             }
         }
     }
+    
+    //suspresions des cartes
+    while(deck.size()>0){
+        Carte* c = deck.at(deck.size()-1);
+        deck.pop_back();
+        delete c;
+    }
     return score;
 }
 
