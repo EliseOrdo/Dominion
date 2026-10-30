@@ -114,6 +114,7 @@ Joueur Jeu::victoire(){
 }
 
 void Jeu::fin(){
+    //suprimmer les cartes des pioches
 }
 
 
