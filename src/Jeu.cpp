@@ -94,6 +94,14 @@ void Jeu::premierePartie(bool rapide){
     if(rapide){nb = 1;}
     pioches[new Atelier()] = nb;
     pioches[new Bucheron()] = nb;
+    pioches[new Cave()] = nb;
+    pioches[new Douve()] = nb;
+    //pioches[new Forgeron()] = nb;
+    pioches[new Marche()] = nb;
+    pioches[new Milice()] = nb;
+    pioches[new Mine()] = nb;
+    pioches[new Festin()] = nb;
+    pioches[new Village()] = nb;
 }
 
 void Jeu::tour(){

@@ -2,7 +2,7 @@
 #define MARCHE_H
 #include "Royaume.h"
 
-class Marche : protected Royaume {
+class Marche : public Royaume {
 public:
     Marche();
     Carte* dupliquer() const override{return new Marche();}
