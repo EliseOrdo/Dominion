@@ -57,9 +57,9 @@ Joueur::Joueur(){
 }
 
 void Joueur::tour(){
-    std::cout<<"\nTour du joueur "<<id<<std::endl;
+    std::cout<<"\nTour du joueur "<<id<<std::endl; 
     //phase action
-    while(nb_action > 0){
+    while(nb_action > 0 and int(getCartesAction(main).size())>0){
         Joueur::jouerCarte();
     }
 
