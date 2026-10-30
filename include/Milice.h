@@ -3,7 +3,7 @@
 #include "Royaume.h"
 #include "Attaque.h"
 
-class Milice : protected virtual Royaume, protected virtual Attaque{
+class Milice : public virtual Royaume, public virtual Attaque{
 public:
     Milice();
     Carte* dupliquer() const override{return new Milice();}

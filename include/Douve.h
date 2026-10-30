@@ -3,7 +3,7 @@
 #include "Royaume.h"
 #include "Reaction.h"
 
-class Douve : virtual Royaume, virtual Reaction {
+class Douve : virtual public Reaction {
 public:
     Douve();
     void effet(Joueur j) override;

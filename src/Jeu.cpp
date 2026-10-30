@@ -60,6 +60,13 @@ void Jeu::config(){
     }while(choix!="r" and choix!="n");
     if(choix == "r"){
         //initier partie rapide
+        pioches[new Cuivre()] = 1;
+        pioches[new Argent()] = 1;
+        pioches[new Or()] = 1;
+        pioches[new Malediction()] = 1;
+        pioches[new Domaine()] = 1;
+        pioches[new Duche()] = 1;
+        pioches[new Province()] = 1;
         Jeu::premierePartie(true);
     }
     if(choix == "n"){
@@ -94,6 +101,14 @@ void Jeu::premierePartie(bool rapide){
     if(rapide){nb = 1;}
     pioches[new Atelier()] = nb;
     pioches[new Bucheron()] = nb;
+    pioches[new Cave()] = nb;
+    pioches[new Douve()] = nb;
+    //pioches[new Forgeron()] = nb;
+    pioches[new Marche()] = nb;
+    pioches[new Milice()] = nb;
+    pioches[new Mine()] = nb;
+    pioches[new Festin()] = nb;
+    pioches[new Village()] = nb;
 }
 
 void Jeu::tour(){
