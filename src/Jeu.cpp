@@ -49,6 +49,7 @@ void Jeu::config(){
     if(choix == "n"){
         //initier partie
     }
+    //URGENT : SE CONCENTRER SUR LE MINIMUM POUR LE RAPPORT, CHOISIR NOUS MEME DANS LE CODE LES 10 CARTES ROYAUMES
 
     //Détermination des cartes à acheter 
     //"Les dix cartes royaumes peuvent être sélectionnées au début, soit parmi plusieurs sets de base, soit nominativement, soit aléatoirement"
