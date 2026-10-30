@@ -1,8 +1,8 @@
 #ifndef ATELIER_H
 #define ATELIER_H
-#include "Royaume.h"
+#include "Action.h"
 
-class Atelier: public Royaume{
+class Atelier: public Action{
     public:
         Atelier();
         void effet(Joueur* j) override;

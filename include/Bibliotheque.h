@@ -1,8 +1,8 @@
 #ifndef BIBLIOTHEQUE_H
 #define BIBLIOTHEQUE_H
-#include "Royaume.h"
+#include "Action.h"
 
-class Bibliotheque : public Royaume{
+class Bibliotheque : public Action{
 public:
     Bibliotheque();
     void effet(Joueur* j) override;

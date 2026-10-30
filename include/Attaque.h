@@ -1,8 +1,8 @@
 #ifndef ATTAQUE_H
 #define ATTAQUE_H
-#include "Royaume.h"
+#include "Action.h"
 
-class Attaque : virtual public Royaume {
+class Attaque : virtual public Action {
 
 public :
 };

@@ -5,6 +5,7 @@
 #include "Victoire.h"
 #include "Malediction.h"
 #include "Royaume.h"
+#include "Action.h"
 #include "Carte.h"
 #include <random>
 #include <algorithm>
@@ -35,11 +36,11 @@ std::vector<Carte*> Joueur::getCartesVictoire(std::vector<Carte*> listeCartes){
     return res;
 }
 
-std::vector<Carte*> Joueur::getCartesRoyaume(std::vector<Carte*> listeCartes){
+std::vector<Carte*> Joueur::getCartesAction(std::vector<Carte*> listeCartes){
     std::vector<Carte*> res;
     for(Carte* cartePtr : listeCartes){
-        Royaume* royPtr = dynamic_cast<Royaume*>(cartePtr);
-        if(royPtr){
+        Action* actPtr = dynamic_cast<Action*>(cartePtr);
+        if(actPtr){
             res.push_back(cartePtr);
         }
     }
@@ -114,13 +115,13 @@ void Joueur::jouerCarte(){
     std::cout<<"Jouer une carte ? \n";
     if(Jeu::OuiNon()){
         Carte* carte;
-        Royaume* roy = nullptr;
+        Action* act = nullptr;
         do{
             carte = Jeu::choisirCarte(main);
-            roy = dynamic_cast<Royaume*>(carte);
-        }while(!roy);
-        poserCarte(roy);
-        roy->effet(this);
+            act = dynamic_cast<Action*>(carte);
+        }while(!act);
+        poserCarte(act);
+        act->effet(this);
     }
     nb_action -= 1;
 }

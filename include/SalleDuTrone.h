@@ -1,8 +1,8 @@
 #ifndef SALLETRONE_H
 #define SALLETRONE_H
-#include "Royaume.h"
+#include "Action.h"
 
-class SalleDuTrone : public Royaume {
+class SalleDuTrone : public Action {
 public:
     SalleDuTrone();
     void effet(Joueur* j) override;

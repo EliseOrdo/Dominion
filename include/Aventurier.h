@@ -1,8 +1,8 @@
 #ifndef AVENTURIER_H
 #define AVENTURIER_H
-#include "Royaume.h"
+#include "Action.h"
 
-class Aventurier: public Royaume{
+class Aventurier: public Action{
 public:
     Aventurier();
     void effet(Joueur* j) override;

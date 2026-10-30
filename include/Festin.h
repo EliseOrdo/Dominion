@@ -1,8 +1,8 @@
 #ifndef FESTIN_H
 #define FESTIN_H
-#include "Royaume.h"
+#include "Action.h"
 
-class Festin : public Royaume {
+class Festin : public Action {
 public:
     Festin();
     void effet(Joueur* j) override;

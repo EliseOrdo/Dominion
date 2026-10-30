@@ -103,7 +103,7 @@ void Jeu::premierePartie(bool rapide){
     pioches[new Atelier()] = nb;
     pioches[new Bucheron()] = nb;
     pioches[new Cave()] = nb;
-    pioches[new Douve()] = nb;
+    pioches[static_cast<Carte*>(static_cast<Reaction*>(new Douve()))] = nb;
     //pioches[new Forgeron()] = nb;
     pioches[new Marche()] = nb;
     pioches[new Milice()] = nb;

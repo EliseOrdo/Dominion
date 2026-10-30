@@ -1,7 +1,8 @@
 #ifndef RENO_H
 #define RENO_H
-#include "Royaume.h"
-class Renovation: public Royaume {
+#include "Action.h"
+
+class Renovation: public Action {
 public:
     Renovation();
     void effet(Joueur* j) override;
