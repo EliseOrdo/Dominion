@@ -2,7 +2,7 @@
 #define LABO_H
 #include "Royaume.h"
 
-class Laboratoire : protected Royaume {
+class Laboratoire : public Royaume {
 public:
     Laboratoire();
     Carte* dupliquer() const override{return new Laboratoire();}

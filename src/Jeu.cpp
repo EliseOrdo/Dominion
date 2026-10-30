@@ -10,13 +10,27 @@
 #include "Bucheron.h"
 #include "Cave.h"
 #include "Douve.h"
-//#include "Forgeron.h"
+#include "Forgeron.h"
 #include "Marche.h"
 #include "Milice.h"
 #include "Mine.h"
 #include "Festin.h"
 #include "Renovation.h"
 #include "Village.h"
+#include "Aventurier.h"
+#include "Bureaucrate.h"
+#include "Chancelier.h"
+#include "Chapelle.h"
+#include "Laboratoire.h"
+#include "PreteurSurGages.h"
+#include "SalleDuTrone.h"
+#include "Bibliotheque.h"
+#include "ChambreDuConseil.h"
+#include "Espion.h"
+#include "Festival.h"
+#include "Voleur.h"
+#include "Jardin.h"
+#include "Sorciere.h"
 #include <iostream>
 #include <limits>
 #include <string>
@@ -26,8 +40,43 @@
 std::map<Carte*, int> Jeu::pioches;
 std::vector<Joueur*> Jeu::joueurs;
 int Jeu::nb_pioches_vides = 0;
+std::vector<Carte*> cartes_premieres_parties = {new Atelier(), new Bucheron(), new Cave(), new Douve(), new Forgeron(), new Marche(), new Milice(), new Mine(), new Renovation(), new Village()};
+std::vector<Carte*> cartes_richesses_et_tresors = {new Aventurier(), new Bureaucrate(), new Chancelier(), new Chapelle(), new Festin(), new Laboratoire(), new Marche(), new Mine(), new PreteurSurGages(), new SalleDuTrone()};
+std::vector<Carte*> cartes_interaction = {new Bibliotheque(), new Bureaucrate(), new ChambreDuConseil(), new Chancelier(), new Douve(), new Espion(), new Festival(), new Milice(), new Village(), new Voleur()};
+std::vector<Carte*> cartes_changement_de_taille = {new Atelier(), new Bucheron(), new Cave(), new Chapelle(), new Festin(), new Jardin(), new Laboratoire(), new Sorciere(), new Village(), new Voleur()};
+std::vector<Carte*> cartes_place_du_village = {new Bibliotheque(), new Bucheron(), new Bureaucrate(), new Cave(), new Festival(), new Forgeron(), new Marche(), new Renovation(), new SalleDuTrone(), new Village()};
+std::vector<Carte*> cartes_depart;
+
+void choix_depart(){
+    std::cout<<"Quel ensemble choisissez vous ? (premieres parties: 0, richesses et tresors: 1, interaction: 2, changement taille : 3, place du village : 4\n";
+    int rep;
+    while(!(std::cin>>rep) or rep<0 or 4<rep){
+        std::cin.clear();//efface les bits d'erreur du buffer;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');// supprime la ligne erronée pour eviter boucle infinie
+        std::cout<<"erreur, veuillez réessayer.\n";
+    }
+    switch(rep){
+        case 0:
+            cartes_depart = cartes_premieres_parties;
+            break;
+        case 1:
+            cartes_depart = cartes_richesses_et_tresors;
+            break;
+        case 2:
+            cartes_depart = cartes_interaction;
+            break;
+        case 3:
+            cartes_depart = cartes_changement_de_taille;
+            break;
+        case 4:
+            cartes_depart = cartes_place_du_village;
+            break;
+    }
+}
 
 void Jeu::config(){
+    //choix cartes
+    choix_depart();
     //Nombre de joueurs
     int rep;
     std::cout<<"\nCombien de joueurs (entre 2 et 4) ?\n";
@@ -100,16 +149,9 @@ void Jeu::config(){
 void Jeu::premierePartie(bool rapide){
     int nb = 10;
     if(rapide){nb = 1;}
-    pioches[new Atelier()] = nb;
-    pioches[new Bucheron()] = nb;
-    pioches[new Cave()] = nb;
-    pioches[new Douve()] = nb;
-    //pioches[new Forgeron()] = nb;
-    pioches[new Marche()] = nb;
-    pioches[new Milice()] = nb;
-    pioches[new Mine()] = nb;
-    pioches[new Renovation()] = nb;
-    pioches[new Village()] = nb;
+    for(Carte* c:cartes_depart){
+        pioches[c->dupliquer()] = nb;
+    }
 }
 
 bool Jeu::tour(){
