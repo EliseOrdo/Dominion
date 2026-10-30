@@ -12,5 +12,4 @@ void Atelier::effet(Joueur* j){
     if(choix){
         j->Carte2Defausse(Jeu::prendreCartePioches(choix));
     }
-    j->ecarter_en_jeu(nom);
 }
