@@ -15,6 +15,7 @@
 #include "Milice.h"
 #include "Mine.h"
 #include "Festin.h"
+#include "Renovation.h"
 #include "Village.h"
 #include <iostream>
 #include <limits>
@@ -107,7 +108,7 @@ void Jeu::premierePartie(bool rapide){
     pioches[new Marche()] = nb;
     pioches[new Milice()] = nb;
     pioches[new Mine()] = nb;
-    pioches[new Festin()] = nb;
+    pioches[new Renovation()] = nb;
     pioches[new Village()] = nb;
 }
 
