@@ -5,7 +5,7 @@
 class Festival: public Royaume{
 public:
     Festival();
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
     Carte* dupliquer() const override{return new Festival();}
 };
 

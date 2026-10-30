@@ -23,7 +23,7 @@
 #include <iostream>
 
 std::map<Carte*, int> Jeu::pioches;
-std::vector<Joueur> Jeu::joueurs;
+std::vector<Joueur*> Jeu::joueurs;
 int Jeu::nb_pioches_vides = 0;
 
 void Jeu::config(){
@@ -37,19 +37,19 @@ void Jeu::config(){
     }
     joueurs = {};
     for(int i=0; i<rep; i++){
-        joueurs.push_back(Joueur());
+        joueurs.push_back(new Joueur());
     }
 
-    for (Joueur j:joueurs){
+    for (Joueur* j:joueurs){
         for(int i = 0; i<3; i++){
             Domaine* d = new Domaine();
-            j.Carte2Defausse(d);
+            j->Carte2Defausse(d);
         }
         for(int i = 0; i<7; i++){
             Cuivre* c = new Cuivre();
-            j.Carte2Defausse(c);
+            j->Carte2Defausse(c);
         }
-        j.piocher(5);
+        j->piocher(5);
     }
 
     //Partie rapide ou non
@@ -111,12 +111,11 @@ void Jeu::premierePartie(bool rapide){
     pioches[new Village()] = nb;
 }
 
-void Jeu::tour(){
+bool Jeu::tour(){
     //alterner entre les joueurs
     //Vérifier que la partie n'est pas finie
-    for(Joueur j:joueurs){
-        std::cout<<"tour du joueur "<<j.getId()<<std::endl;
-        j.tour();
+    for(Joueur* j:joueurs){
+        j->tour();
         int nb_prov;
         for(auto pair:pioches){
             if(pair.first->getNom()=="Province"){
@@ -124,13 +123,9 @@ void Jeu::tour(){
             }
         }
         if(nb_pioches_vides>= 3 or nb_prov==0){
-            //fin de partie
-            std::cout<<"La partie est finie !\nCalcul du gagnant...\n";
-            std::cout<<"Le joueur "<<victoire().getId()<<" est victorieux ! Bravo !\n";
-            fin();
-            break;
+            return false;
         }
-    }
+    }return true;
 }
 
 Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
@@ -163,11 +158,11 @@ bool Jeu::OuiNon(){
     return false;
 }
 
-Joueur Jeu::victoire(){
+Joueur* Jeu::victoire(){
     int score_max = -1000; //Pas 0 car les malefices existent
-    Joueur gagnant;
-    for (Joueur j:joueurs){
-        int score = j.getScore();
+    Joueur* gagnant;
+    for (Joueur* j:joueurs){
+        int score = j->getScore();
         if(score > score_max){
             score_max = score;
             gagnant = j;
@@ -219,22 +214,22 @@ Carte* Jeu::enleverCarte(std::string nom, std::vector<Carte*> liste){
     return nullptr;
 }
 
-std::vector<Joueur> Jeu::getJoueurs(Joueur j){
-    std::vector<Joueur> res = {};
-    for (Joueur j2:Jeu::joueurs){
-        if(j.getId() != j2.getId()){
+std::vector<Joueur*> Jeu::getJoueurs(Joueur* j){
+    std::vector<Joueur*> res = {};
+    for (Joueur* j2:Jeu::joueurs){
+        if(j->getId() != j2->getId()){
             res.push_back(j2);
         }
     }
     return res;
 }
 
-std::vector<Joueur> Jeu::getJoueursAffectes(Joueur j){
-    std::vector<Joueur> res = {};
-    for (Joueur j2:Jeu::joueurs){
-        if(j.getId() != j2.getId()){
+std::vector<Joueur*> Jeu::getJoueursAffectes(Joueur* j){
+    std::vector<Joueur*> res = {};
+    for (Joueur* j2:Jeu::joueurs){
+        if(j->getId() != j2->getId()){
             bool affect = true;
-            for(Carte* c:j2.getMain()){
+            for(Carte* c:j2->getMain()){
                 Reaction* reactPtr = dynamic_cast<Reaction*>(c);
                 if(reactPtr){
                     std::cout<<"vous pouvez réagir avec cette carte :\n"<<c<<"\nSouhaitez-vous la révéler ?\n";
@@ -258,7 +253,7 @@ std::vector<Joueur> Jeu::getJoueursAffectes(Joueur j){
 std::vector<Carte*> Jeu::getListeCartesPiochesCoutMax(int cout_max){
     std::vector<Carte*> res;
     for(auto pair:pioches){
-        if(pair.first->getCout()<cout_max){
+        if(pair.first->getCout()<=cout_max){
             res.push_back(pair.first);
         }
     }

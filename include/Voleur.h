@@ -6,7 +6,7 @@
 class Voleur : public virtual Attaque, public virtual Royaume {
 public:
     Voleur();
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
     Carte* dupliquer() const override{return new Voleur();}
 };
 

@@ -48,8 +48,6 @@ void Joueur::tour(){
     std::cout<<"Tour du joueur "<<id<<std::endl;
     //phase action
     while(nb_action > 0){
-        std::cout<<"Jouer une carte ?\n";
-        if(!Jeu::OuiNon()){break;}
         Joueur::jouerCarte();
     }
 
@@ -57,12 +55,10 @@ void Joueur::tour(){
     for(Carte* c:main){
         Tresor* tres = dynamic_cast<Tresor*>(c);
         if(tres){
-            nb_piece += tres->getCout();
+            nb_piece += tres->getValeur();
         }
     }
     while(nb_achat > 0){
-        std::cout<<"Faire un achat ?\n";
-        if(!Jeu::OuiNon()){break;}
         achat();
     }
 
@@ -79,6 +75,7 @@ void Joueur::achat(){
 
     //Affiche les possibilitées et achète
     std::cout<<"Nombre d'achat restant : "<<nb_achat<<std::endl;
+    std::cout<<"Vous avez "<<nb_piece<<" pieces\n";
     std::cout<<"Achats possibles : \n";
     std::vector<Carte*> liste_carte = Jeu::getListeCartesPiochesCoutMax(nb_piece);
     for (Carte* c: liste_carte){
@@ -89,10 +86,10 @@ void Joueur::achat(){
         Carte* choix = Jeu::choisirCarte(Jeu::getListeCartesPiochesCoutMax(nb_piece));
         if(choix){
             Joueur::Carte2Defausse(Jeu::prendreCartePioches(choix));
-            nb_achat -=1;
             nb_piece -= choix->getCout();
         }
     }
+    nb_achat -=1;
 }
 
 void Joueur::jouerCarte(){
@@ -110,7 +107,7 @@ void Joueur::jouerCarte(){
             roy = dynamic_cast<Royaume*>(carte);
         }while(!roy);
         poserCarte(roy);
-        roy->effet(*this);
+        roy->effet(this);
     }
     nb_action -= 1;
 }
@@ -128,17 +125,18 @@ Carte* Joueur::reveler(){
     if (deck.size()==0){
         melanger();
     }
-    Carte* rev = deck[deck.size()-1];
+    Carte* rev = deck.at(deck.size()-1);
     deck.pop_back();
     return rev;
 }
 
 void Joueur::piocher(int nb){
+    std::cout<<"Le joueur "<<id<<" pioche\n";
     for(int i=0;i<nb;i++){
         if (deck.size()==0){
             melanger();
         }
-        main.push_back(deck[deck.size()-1]);
+        main.push_back(deck.at(deck.size()-1));
         deck.pop_back();
     }
 }

@@ -5,7 +5,7 @@
 class ChambreDuConseil: public Royaume {
 public:
     ChambreDuConseil();
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
     Carte* dupliquer() const override{return new ChambreDuConseil();}
 };
 

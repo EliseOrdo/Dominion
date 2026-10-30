@@ -6,7 +6,7 @@ Village::Village(){
     description = "+1 Carte, +2 Action;";
 }
 
-void Village::effet(Joueur j){
-    j.addNbAction(2);
-    j.piocher(1);
+void Village::effet(Joueur* j){
+    j->addNbAction(2);
+    j->piocher(1);
 }

@@ -5,7 +5,7 @@
 class Bibliotheque : public Royaume{
 public:
     Bibliotheque();
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
     Carte* dupliquer() const override{return new Bibliotheque();}
 };
 

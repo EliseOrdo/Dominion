@@ -4,7 +4,7 @@
 class Mine: public Royaume {
 public:
     Mine();
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
     Carte* dupliquer() const override{return new Mine();}
 };
 

@@ -6,7 +6,7 @@ class Marche : public Royaume {
 public:
     Marche();
     Carte* dupliquer() const override{return new Marche();}
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
 };
 
 #endif

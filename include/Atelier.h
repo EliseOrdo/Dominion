@@ -5,7 +5,7 @@
 class Atelier: public Royaume{
     public:
         Atelier();
-        void effet(Joueur j) override;
+        void effet(Joueur* j) override;
         Carte* dupliquer() const override{return new Atelier();}
 };
 

@@ -6,7 +6,7 @@
 class Chapelle : public Royaume {
 public:
     Chapelle();
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
     Carte* dupliquer() const override{return new Chapelle();}
 };
 

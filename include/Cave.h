@@ -5,7 +5,7 @@
 class Cave: public Royaume {
 public:
     Cave();
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
     Carte* dupliquer() const override{return new Cave();}
 };
 

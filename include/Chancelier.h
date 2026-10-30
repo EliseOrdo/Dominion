@@ -5,7 +5,7 @@
 class Chancelier: public Royaume{
 public:
     Chancelier();
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
     Carte* dupliquer() const override{return new Chancelier();}
 };
 

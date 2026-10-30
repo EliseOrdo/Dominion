@@ -6,7 +6,7 @@
 class Douve : virtual public Reaction {
 public:
     Douve();
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
     Carte* dupliquer() const override{return new Douve();}
 };
 

@@ -6,7 +6,7 @@ Douve::Douve(){
     description = "+2 cartes et quand un autre joueur attaque, l'effet ne s'applique pas";
 }
 
-void Douve::effet(Joueur j){
-    j.piocher(2);
+void Douve::effet(Joueur* j){
+    j->piocher(2);
 }
 

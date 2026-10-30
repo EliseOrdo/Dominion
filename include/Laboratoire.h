@@ -6,7 +6,7 @@ class Laboratoire : protected Royaume {
 public:
     Laboratoire();
     Carte* dupliquer() const override{return new Laboratoire();}
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
 };
 
 #endif

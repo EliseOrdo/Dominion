@@ -6,7 +6,7 @@ Bucheron::Bucheron(){
     description = "+1 achat, +2 pieces;";
 }
 
-void Bucheron::effet(Joueur j){
-    j.addNbAchat(1);
-    j.addNbPiece(2);
+void Bucheron::effet(Joueur* j){
+    j->addNbAchat(1);
+    j->addNbPiece(2);
 }

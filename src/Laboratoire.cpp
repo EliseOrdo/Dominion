@@ -7,7 +7,7 @@ Laboratoire::Laboratoire(){
     description = "+2 Cartes, +1 Action;";
 }
 
-void Laboratoire::effet(Joueur j){
-    j.addNbAction(1);
-    j.piocher(2);
+void Laboratoire::effet(Joueur* j){
+    j->addNbAction(1);
+    j->piocher(2);
 }

@@ -4,7 +4,7 @@
 #include "Joueur.h"
 class Royaume : public Carte{
 public :
-    virtual void effet(Joueur j) = 0;
+    virtual void effet(Joueur* j) = 0;
 };
 
 #endif

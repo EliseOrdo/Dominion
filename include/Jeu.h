@@ -7,7 +7,7 @@
 #include <string>
 class Jeu {
     static std::map<Carte*,int> pioches;
-    static std::vector<Joueur> joueurs;
+    static std::vector<Joueur*> joueurs;
     static int nb_pioches_vides;
 public:
     static void config();
@@ -20,15 +20,15 @@ public:
     static Carte* prendreCartePioches(std::string nom);
     static Carte* prendreCartePioches(Carte* carte);
 
-    static std::vector<Joueur> getJoueurs(Joueur j);
-    static std::vector<Joueur> getJoueursAffectes(Joueur j);
+    static std::vector<Joueur*> getJoueurs(Joueur* j);
+    static std::vector<Joueur*> getJoueursAffectes(Joueur* j);
 
     static std::vector<Carte*> getListeCartesPiochesCoutMax(int cout_max);
-    static Joueur victoire();
+    static Joueur* victoire();
     static void fin();
     static bool OuiNon();
     
-    static void tour();
+    static bool tour();
 };
 
 #endif

@@ -5,7 +5,7 @@
 class Aventurier: public Royaume{
 public:
     Aventurier();
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
     Carte* dupliquer() const override{return new Aventurier();}
 };
 

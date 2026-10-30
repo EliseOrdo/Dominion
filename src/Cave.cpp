@@ -8,19 +8,19 @@ Cave::Cave(){
     description = "+1 Action, Défaussez autant de cartes que vous voulez. +1 Carte par carte défaussée.;";
 }
 
-void Cave::effet(Joueur j){
-    j.addNbAction(1);
+void Cave::effet(Joueur* j){
+    j->addNbAction(1);
     std::vector<Carte*> lc;
     std::cout<<"Combien de cartes souhaitez-vous défausser ?\n";
     int nb;
     std::cin>>nb;
     for(int i=0; i<nb;i++){
-        Carte* c =Jeu::choisirCarte(j.getMain());
+        Carte* c =Jeu::choisirCarte(j->getMain());
         lc.push_back(c);
-        j.getMain().erase(j.getMain().begin()+j.getIndCarteMain(c->getNom()));
+        j->getMain().erase(j->getMain().begin()+j->getIndCarteMain(c->getNom()));
     }
     for(Carte* c: lc){
-        j.defausser(c);
+        j->defausser(c);
     }
-    j.piocher(nb);
+    j->piocher(nb);
 }

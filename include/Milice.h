@@ -7,7 +7,7 @@ class Milice : public virtual Royaume, public virtual Attaque{
 public:
     Milice();
     Carte* dupliquer() const override{return new Milice();}
-    void effet(Joueur j) override;
+    void effet(Joueur* j) override;
 };
 
 #endif
