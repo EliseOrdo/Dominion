@@ -1,8 +1,8 @@
 #ifndef FORGERON_H
 #define FORGERON_H
-#include "Royaume.h"
+#include "Action.h"
 
-class Forgeron: public Royaume{
+class Forgeron: public Action{
 public:
     Forgeron();
     void effet(Joueur* j) override;
