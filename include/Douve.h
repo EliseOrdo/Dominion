@@ -7,7 +7,7 @@ class Douve : virtual public Reaction, virtual public Action{
 public:
     Douve();
     void effet(Joueur* j) override;
-    Carte* dupliquer() const override{return static_cast<Action*>(new Douve());}
+    Carte* dupliquer() const override{new Douve();}
 };
 
 #endif
