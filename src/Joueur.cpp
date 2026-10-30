@@ -227,6 +227,7 @@ void Joueur::travailTermine(){
 Carte* Joueur::montrerCarteVictoire(){
     std::vector<Carte*> lv = Joueur::getCartesVictoire(main);
     if(lv.size()>0){
+        std::cout<<"Joueur "<<id<<" veuillez choisir une carte à dévoiler.\n";
         return Jeu::choisirCarte(lv);
     }else{
         return nullptr;
