@@ -216,7 +216,16 @@ Joueur* Jeu::victoire(){
 }
 
 void Jeu::fin(){
-    //suprimmer les cartes des pioches
+    while (joueurs.size()>0){
+        Joueur* j = joueurs.at(joueurs.size()-1);
+        joueurs.pop_back();
+        delete j;
+    }
+    for (auto it = pioches.begin(); it != pioches.end();){
+        Carte* c = it->first;
+        it = pioches.erase(it);
+        delete c;
+    }
 }
 
 
