@@ -179,7 +179,7 @@ Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     //bool retry = false;
     int rep;
     std::cout<<"Quel est votre choix ?\n";
-    while(!(std::cin>>rep) or rep<0 or int(listeCartes.size())<rep){
+    while(!(std::cin>>rep) or rep<0 or int(listeCartes.size())<=rep){
         std::cin.clear();//efface les bits d'erreur du buffer;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');// supprime la ligne erronée pour eviter boucle infinie
         std::cout<<"erreur, veuillez réessayer.\n";
