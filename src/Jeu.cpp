@@ -179,7 +179,7 @@ Carte* Jeu::choisirCarte(std::vector<Carte*> listeCartes){
     //bool retry = false;
     int rep;
     std::cout<<"Quel est votre choix ?\n";
-    while(!(std::cin>>rep) or rep<0 or int(listeCartes.size())<rep){
+    while(!(std::cin>>rep) or rep<0 or int(listeCartes.size())<=rep){
         std::cin.clear();//efface les bits d'erreur du buffer;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');// supprime la ligne erronée pour eviter boucle infinie
         std::cout<<"erreur, veuillez réessayer.\n";
@@ -216,7 +216,16 @@ Joueur* Jeu::victoire(){
 }
 
 void Jeu::fin(){
-    //suprimmer les cartes des pioches
+    while (joueurs.size()>0){
+        Joueur* j = joueurs.at(joueurs.size()-1);
+        joueurs.pop_back();
+        delete j;
+    }
+    for (auto it = pioches.begin(); it != pioches.end();){
+        Carte* c = it->first;
+        it = pioches.erase(it);
+        delete c;
+    }
 }
 
 
